@@ -1,7 +1,7 @@
 
 
 
-To check whether the native toolchiaan is accessible:
+To check whether the native toolchain is accessible:
 ```shell
 > native-image --native-image-info -jar hello-workshop-0.0.1-jar-with-dependencies.jar 
 
