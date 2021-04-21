@@ -1,6 +1,5 @@
 # native-spring-on-k8s-with-graalvm-workshop
 
-# native-spring-on-k8s-with-graalvm
 This repo contains all the materials required for the `Native Spring on K8s with GraalVM` workshop.
 
 The workshop is designed to help Spring Boot developers build new / modernize existing applications using Spring Native and deploying them in Kubernetes. Basic knowledge of Spring Boot and Kubernetes is assumed for succcesful completion.
@@ -34,27 +33,27 @@ Please follow the [environment setup and validation section](setup/README.md) `p
     * GraalVM Architecture
     * Native Image technology for ahead-of-time compilation
     * Build configuration for a native image build process
-        * **[Demo]** - The simplest way to configure GraalVM Native Image [x]
-        * **[Hands-on #2]** - Understanding Reflection and the Class initialization strategy using a simple Native app
-    * AOT compilation limitations - what do I need to know 
-        * Class Metadata, Reflection, Dynamic Class Loading, Dynamic Proxies, Accessing Resources, Serialization
-        * **[Demo]** - Mitigate GraalVM AOT limitations
+        * How to configure Native Image Builds using the Java Agent -- **[Demo]** [x]
+        * Runtime vs Build-Time Initialization
+        * Understanding the Class initialization strategy for native images -- **[Hands-on #2]**
+    * AOT compilation limitations - what do I need to know ?
+        * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
+        * Mitigating GraalVM AOT limitations -- **[Demo]** 
     * Debugging and Monitoring Tools
-        * **[Demo]** - VisualVM and the GraalVM Dashboard
+        * VisualVM and the GraalVM Dashboard -- **[Demo]** [x]
     * Building with the GraalVM Maven plugin
+    * Best practices when writing code for native images
 5. Building Spring Native Applications
-    * What is Spring Native and why use it?
-    * AOT compilation limitations - how do Native Hints in Spring bypass them?
-    * Spring Native's limitations - what do I need to know?
+    * What is Spring Native and why use it ?
+    * AOT compilation limitations - how do Native Hints in Spring bypass them ?
+    * Spring Native's limitations - what do I need to know ?
     * Building with the Spring AOT Maven plugin 
     * Cloud Native Buildpacks -support source-to-image for native images 
-        * **[Hands-on #3]** - Building and running a Spring Native app and **_diving_** into the built image
-6. Modernize an app to use Spring Native
-    * Identifying limitations 
-    * Addressing them step-by-step
-        * **[Demo]**
+        * Building and running a Spring Native app and **_diving_** into the built image - **[Hands-on #3]**
+6. Modernizing an app to leverage Spring Native
+    * Identifying AOT limitations in the app
+    * Addressing them step-by-step - **[Demo]**
 7. Troubleshooting tips 
-8. Best practice - building native-friendly Spring libs
-    * **[Demo]**
+8. Best practices for building Spring Native apps - **[Demo]**
 9. Spring Native Roadmap
 

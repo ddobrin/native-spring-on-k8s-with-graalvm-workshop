@@ -1,4 +1,4 @@
-# Serialization example
+# Serialization
 
 ```shell
 > javac Serialization.java 
