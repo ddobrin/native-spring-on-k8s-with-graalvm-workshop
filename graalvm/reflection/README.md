@@ -1,13 +1,23 @@
-# Reflection
+# Dynamic Class Loading and Reflection
 
-This category includes:
+## Dynamic Classloading
+Any class to be accessed by name at image run time must be enumerated at image build time. 
+
+How does it work:
+* A call to Class.forName("myClass”) must have myClass in a configuration file. 
+* If the configuration file is used, but does not include a class that is requested for dynamic class loading, a `ClassNotFoundException` will be thrown, as if the class was not found on the classpath or was not accessible.
+
+## Reflection
+Individual classes, methods, and fields that should be accessible via reflection need to be known ahead-of-time. 
+
+How does it work:
+* Native Image tries to resolve these elements through a static analysis that detects calls to the Reflection API. 
+* Where the analysis fails, the program elements reflectively accessed at runtime must be specified during native image generation.
+
+The following aspects are included in this category:
 * listing methods and fields of a class 
-* nvoking methods and accessing fields reflectively 
-* using other classes in the package java.lang.reflect.
-
-Individual classes, methods, and fields that should be accessible via reflection need to be known ahead-of-time. Native Image tries to resolve these elements through a static analysis that detects calls to the Reflection API. 
-
-Where the analysis fails, the program elements reflectively accessed at run time must be specified during native image generation.
+* invoking methods and accessing fields reflectively 
+* using other classes in the package `java.lang.reflect`
 
 Let's work through a sample based on `Reflection.java`:
 ```java

@@ -24,7 +24,7 @@ Please follow the [environment setup and validation section](setup/README.md) `p
 
 1. Introductions
 2. Setup Validation - say "Hello Workshop"
-    * **[Hands-on #1]** [x]
+    * **[Hands-on Lab #1]** [x]
 3. Demystifying Native Images
     * Let's talk about JVM vs Native
     * Introducing ahead-of-time compilation (AOT)
@@ -35,9 +35,10 @@ Please follow the [environment setup and validation section](setup/README.md) `p
     * Build configuration for a native image build process
         * How to configure Native Image Builds using the Java Agent -- **[Demo]** [x]
         * Runtime vs Build-Time Initialization
-        * Understanding the Class initialization strategy for native images -- **[Hands-on #2]**
+        * Understanding the Class initialization strategy for native images 
+            * **[Hands-on Lab #2]** [x]
     * AOT compilation limitations - what do I need to know ?
-        * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
+        * Dynamic Class Loading, Reflection, [x] Dynamic Proxies, Accessing Resources, Serialization
         * Mitigating GraalVM AOT limitations -- **[Demo]** 
     * Debugging and Monitoring Tools
         * VisualVM and the GraalVM Dashboard -- **[Demo]** [x]
