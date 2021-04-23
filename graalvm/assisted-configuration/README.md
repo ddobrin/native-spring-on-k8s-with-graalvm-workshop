@@ -33,7 +33,6 @@ META-INF
 For example, classes and methods accessed through the Reflection API need to be configured. There are a few ways in which this can be configured, but the most convenient way is the assisted configuration javaagent.
 
 Let's work through a sample based on `Reflection.java`:
-
 ```java
 import java.lang.reflect.Method;
 

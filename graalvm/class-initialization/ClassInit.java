@@ -10,7 +10,7 @@ public class ClassInit {
 class First {
     public static Second second = new Second();
 
-    // part 2 of the exercise
+    /* Uncomment this section for part 2 of the exercise
     public static Thread t;
 
     static {
@@ -23,6 +23,7 @@ class First {
         });
         t.start();
     }
+    */
 }
 
 class Second {

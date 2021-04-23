@@ -10,7 +10,7 @@ The workshop is designed to help Spring Boot developers build new / modernize ex
 This repo contains sample code supporting the workshop agenda, with a focus on building Native Applications using Spring Native and GraalVM.
 
 The content is organized around a number of independent sections, each with a `README.md` file explaining how to build and run the samples or pointing out interesting areas for further exploration.
-* Environment - [Prerequisite Software Setup and Validation](setup/README.md) 
+* [Prerequisite Software Setup and Validation](setup/README.md) 
 * Understanding [GraalVM](graalvm/README.md)
 * Building [Spring Native](spring-native/README.md) Applications
 * [Modernizing](modernize/README.md) an app to use Spring Native
@@ -24,7 +24,7 @@ Please follow the [environment setup and validation section](setup/README.md) `p
 
 1. Introductions
 2. [Setup Validation](setup/README.md) - say "Hello Workshop" 
-    * **[Hands-on Lab #1]** [x]
+    * **[Hands-on Lab #1]**
 3. Demystifying Native Images
     * Let's talk about JVM vs Native
     * Introducing ahead-of-time compilation (AOT)
@@ -36,13 +36,14 @@ Please follow the [environment setup and validation section](setup/README.md) `p
         * How to configure Native Image Builds using the Java Agent -- **[Demo](graalvm/README.md#Demo)** 
     * Initialization
         * Runtime vs Build-Time Initialization
-        * Understanding the Class initialization strategy for Native Images -- **[Hands-on Lab #2](graalvm/README.md#Lab)** 
+        * Understanding the Class initialization strategy for Native Images
+            * **[Hands-on Lab #2](graalvm/README.md#Lab)** 
     * AOT compilation limitations - what do I need to know ?
         * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
-        * Mitigating AOT limitations -- **[Demo]** 
+        * Mitigating AOT limitations -- **[Demo](graalvm/README.md#Demo)** 
+    * Building with the GraalVM Maven plugin        
     * Debugging and Monitoring Tools
-        * VisualVM and the GraalVM Dashboard -- **[Demo]** 
-    * Building with the GraalVM Maven plugin
+        * VisualVM and the GraalVM Dashboard -- **[Demo](graalvm/README.md#Demo)** 
 5. [Building Spring Native Applications](spring-native/README.md)
     * What is Spring Native and why use it ?
     * AOT compilation limitations - how do Native Hints in Spring bypass them ?
