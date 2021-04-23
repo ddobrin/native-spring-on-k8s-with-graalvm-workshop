@@ -33,15 +33,15 @@ Please follow the [environment setup and validation section](setup/README.md) `p
     * GraalVM Architecture
     * Native Image technology for ahead-of-time compilation
     * Build configuration for a native image build process
-        * How to configure Native Image Builds using the Java Agent -- **[Demo](graalvm/README.md#Demo)** [x]
+        * How to configure Native Image Builds using the Java Agent -- **[Demo](graalvm/README.md#Demo)** 
+    * Initialization
         * Runtime vs Build-Time Initialization
-        * Understanding the Class initialization strategy for Native Images 
-            * **[Hands-on Lab #2](graalvm/README.md#Lab)** [x]
+        * Understanding the Class initialization strategy for Native Images -- **[Hands-on Lab #2](graalvm/README.md#Lab)** 
     * AOT compilation limitations - what do I need to know ?
-        * Dynamic Class Loading, Reflection, [x] Dynamic Proxies, Accessing Resources, Serialization
-        * Mitigating GraalVM AOT limitations -- **[Demo]** 
+        * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
+        * Mitigating AOT limitations -- **[Demo]** 
     * Debugging and Monitoring Tools
-        * VisualVM and the GraalVM Dashboard -- **[Demo]** [x]
+        * VisualVM and the GraalVM Dashboard -- **[Demo]** 
     * Building with the GraalVM Maven plugin
 5. [Building Spring Native Applications](spring-native/README.md)
     * What is Spring Native and why use it ?

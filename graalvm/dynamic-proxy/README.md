@@ -94,6 +94,10 @@ The `META-INF/native-image` directory now has the configuration files. We expect
 * proxy-config.json - proxied Map
 
 ```shell
+# observe the files created under /config/META-INF/native-image
+> ls -m config/META-INF/native-image/
+jni-config.json, proxy-config.json, reflect-config.json, resource-config.json, serialization-config.json
+
 > cat META-INF/native-image/reflect-config.json
 [
     {

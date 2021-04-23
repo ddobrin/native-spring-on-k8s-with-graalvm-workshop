@@ -1,25 +1,40 @@
 # Serialization
 
+Java serialization requires class metadata information in order to function and must be specified during the generation of a native image generation.
+
+However, Java serialization has been a persistent source of security vulnerabilities. 
+The Java architects have announced that the existing serialization mechanism will be replaced with a new mechanism avoiding these problems in the near future.
+
+At this time, to support serialization in native images, class metadata must be provided in the `serialization-config.json` file, manually or collected using the javaagent.
+
 ```shell
 > javac Serialization.java 
-> java Serialization
-    Serialized list matches Deserialized list: true
-    Print the first 10 Fibonacci numbers in the sequence
-    0
-    1
-    1
-    2
-    3
-    5
-    8
-    13
-    21
-    34
 
+> java Serialization
+java Serialization 
+Serialized list matches Deserialized list: true
+Print the first 10 Fibonacci numbers in the sequence
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
+
+## observe after the run that the serialized file has been created: serialized_objects_in_stream
+```
+
+Let's build a native image, while not allowing for a fallback class to be created
+```shell
 # build native image - do not create a fallback class in case of failure
 > native-image --no-fallback Serialization
 
-# observe that ArrayList has not been found in the native image
+# build is successful, however
+# observe that ArrayList has not been found in the native image at runtime
 > ./serialization 
 Exception in thread "main" java.lang.ClassNotFoundException: java.util.ArrayList
 	at com.oracle.svm.core.hub.ClassForNameSupport.forName(ClassForNameSupport.java:60)
@@ -32,25 +47,22 @@ Exception in thread "main" java.lang.ClassNotFoundException: java.util.ArrayList
 	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:493)
 	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:451)
 	at Serialization.main(Serialization.java:23)
+```
 
-
-> mkdir -p config/META-INF/native-image
+We will generate the configuration with the javaagent then rebuild the native image.
+```shell
+> mkdir -p META-INF/native-image
 
 # GraalVM agent tracks all usages of dynamic features of an execution on a regular Java VM
 # run the application with a 
-> java -agentlib:native-image-agent=config-output-dir=config/META-INF/native-image Serialization
+> java -agentlib:native-image-agent=config-output-dir=META-INF/native-image Serialization
 
 # observe the files created under /config/META-INF/native-image
-> ls -l config/META-INF/native-image/
-total 40
--rw-r--r--  1 dandobrin  staff    4 18 Apr 17:38 jni-config.json
--rw-r--r--  1 dandobrin  staff    4 18 Apr 17:38 proxy-config.json
--rw-r--r--  1 dandobrin  staff    4 18 Apr 17:38 reflect-config.json
--rw-r--r--  1 dandobrin  staff   53 18 Apr 17:38 resource-config.json
--rw-r--r--  1 dandobrin  staff  115 18 Apr 17:38 serialization-config.json
+> ls -m META-INF/native-image/
+jni-config.json, proxy-config.json, reflect-config.json, resource-config.json, serialization-config.json
 
 # observe the serialization-config.json
-> cat config/META-INF/native-image/serialization-config.json 
+> cat META-INF/native-image/serialization-config.json 
 [
   {
   "name":"java.lang.Long"
@@ -62,23 +74,26 @@ total 40
   "name":"java.util.ArrayList"
   }
 ]
+```
 
+Let's build the native image again and expect a correct behaviour.
+```shell
 # build the native image
-> native-image -cp config:. Serialization
+> native-image Serialization
 
 # observe that the application runs fine
 > ./serialization 
-    Serialized list matches Deserialized list: true
-    Print the first 10 Fibonacci numbers in the sequence
-    0
-    1
-    1
-    2
-    3
-    5
-    8
-    13
-    21
-    34
+Serialized list matches Deserialized list: true
+Print the first 10 Fibonacci numbers in the sequence
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34
 ```
 

@@ -1,5 +1,3 @@
-package com.example;
-
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -9,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Serialization {
-    private static final String filename = "serialized";
+    private static final String filename = "serialized_objects_in_stream";
 
     static Stream<Long> fibonacciStream() {
         return Stream.iterate(new long[]{0, 1}, (f) -> new long[]{f[0] + f[1], f[0]}).map(f -> f[0]);
