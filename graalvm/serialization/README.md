@@ -1,4 +1,4 @@
-# Serialization
+# Serialization in Native Images
 
 Java serialization requires class metadata information in order to function and must be specified during the generation of a native image generation.
 

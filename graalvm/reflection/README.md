@@ -1,4 +1,4 @@
-# Dynamic Class Loading and Reflection
+# Dynamic Class Loading and Reflection in Native Images
 
 ## Dynamic Classloading
 Any class to be accessed by name at image run time must be enumerated at image build time. 
