@@ -41,7 +41,7 @@ Please follow the [environment setup and validation section](setup/README.md) `p
     * AOT compilation limitations - what do I need to know ?
         * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
         * Mitigating AOT limitations -- **[Demo](graalvm/README.md#Demo)** 
-    * Building with the GraalVM Maven plugin        
+    * Building native images with the GraalVM Maven plugin and Docker -- **[Demo](graalvm/hello-workshop/README.md)**       
     * Debugging and Monitoring Tools
         * VisualVM and the GraalVM Dashboard -- **[Demo](graalvm/README.md#Demo)** 
 5. [Building Spring Native Applications](spring-native/README.md)

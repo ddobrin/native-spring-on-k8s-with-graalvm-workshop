@@ -60,34 +60,11 @@
         </plugin>
       </plugins>
   </build>
-
    <profiles>
         <profile>
             <id>native</id>
             <build>
                 <plugins>
-                  <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <executions>
-                      <execution>
-                        <phase>package</phase>
-                        <goals>
-                          <goal>single</goal>
-                        </goals>
-                        <configuration>
-                          <archive>
-                            <manifest>
-                              <mainClass>com.example.Helloworkshop</mainClass>
-                            </manifest>
-                          </archive>
-                          <descriptorRefs>
-                            <descriptorRef>jar-with-dependencies</descriptorRef>
-                          </descriptorRefs>
-                        </configuration>
-                      </execution>
-                    </executions>
-                  </plugin>
                   <plugin>
                     <groupId>org.graalvm.nativeimage</groupId>
                     <artifactId>native-image-maven-plugin</artifactId>
@@ -109,8 +86,6 @@
                   </plugin>
                 </plugins>
             </build>
-
         </profile>
   </profiles>
-
 </project>
