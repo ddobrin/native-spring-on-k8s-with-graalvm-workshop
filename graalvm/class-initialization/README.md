@@ -14,7 +14,6 @@ Let's explore an example application consisting of a few classes in order to:
 Let's start from a simple Java app:
 ```java
 import java.nio.charset.*;
-import java.util.UUID;
 
 public class ClassInit {
     public static void main(String[] args) {
