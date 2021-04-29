@@ -46,11 +46,12 @@ Please follow the [environment setup and validation section](setup/README.md) `p
         * VisualVM and the GraalVM Dashboard -- **[Demo](graalvm/README.md#Demo)** 
 5. [Building Spring Native Applications](spring-native/README.md)
     * What is Spring Native and why use it ?
-    * AOT compilation limitations - how do Native Hints in Spring bypass them ?
+    * AOT compilation limitations - how do Native Hints in Spring bypass them ? -- **[Demo](spring-native/README.md#Demo)**
     * Spring Native's limitations - what do I need to know ?
     * Building with the Spring AOT Maven plugin 
     * Cloud Native Buildpacks -support source-to-image for native images 
-        * Building and running a Spring Native app and **_diving_** into the built image - **[Hands-on #3]**
+        * Building and running a Spring Native app and **_diving_** into the built image
+            * **[Hands-on #3](spring-native/README.md#Lab)**
     * Troubleshooting tips
 6. [Modernizing](modernize/README.md) an app to leverage Spring Native
     * Identifying AOT limitations in the app
