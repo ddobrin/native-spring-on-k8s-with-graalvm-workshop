@@ -47,7 +47,8 @@ public class Reflection implements CommandLineRunner {
 }
 ```
 
-To bypass the class loading and reflection problems, as detailed in the `graalvm` chapter, we will be using the Spring Native `@TypeHint`.
+To bypass the class loading and reflection problems, as detailed in the `graalvm` chapter, we will be using the Spring Native `@TypeHint`,
+to indicate to the GraalVM compiler which configuration is required to be generated
 
 Note that you can specify the hint in multiple ways, directly, or as part of a `@NativeHint` declaration. 
 You can specify a finer-grained set of hints, and then observe that we'll `provide hints` only for the declared methods in our classes:
