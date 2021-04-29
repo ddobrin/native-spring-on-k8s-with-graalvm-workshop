@@ -151,6 +151,7 @@
                                         -Dspring.xml.ignore=true
                                         -Dspring.native.remove-yaml-support=true
                                         --enable-all-security-services
+                                        --no-fallback
                                     </BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
                                 </env>
                             </image>
@@ -197,7 +198,11 @@
                         <version>21.0.0.2</version>
                         <configuration>
                             <mainClass>com.example.hello.SpringFunctionApplication</mainClass>
-                            <buildArgs>-Dspring.native.remove-yaml-support=true -Dspring.spel.ignore=true -Dspring.xml.ignore=true</buildArgs>
+                            <buildArgs>-Dspring.native.remove-yaml-support=true
+                                -Dspring.spel.ignore=true
+                                -Dspring.xml.ignore=true
+                                -H:DashboardDump=../image-dump/function-sample-dump
+                                -H:+DashboardAll</buildArgs>
                             <imageName>${project.artifactId}</imageName>
                         </configuration>
                         <executions>
