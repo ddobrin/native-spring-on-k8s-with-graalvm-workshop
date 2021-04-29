@@ -19,6 +19,6 @@ native applications using _**GraalVM**_.
 <br><br>
 * Building native images with the GraalVM Maven plugin and Docker -- **[Demo/Homework](hello-workshop/README.md)
   <br><br>
-* GraalVM Dashboard -- **[Demo/Homework](multithreading-demo/README.md)**
+* GraalVM Dashboard: <br>Visualizing arbitrary aspects of dynamic and static compilations in Native Image **[Demo/Homework](multithreading-demo/README.md)**
 
 

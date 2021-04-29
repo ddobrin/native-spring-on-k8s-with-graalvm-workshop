@@ -3,7 +3,7 @@
 This application builds upon the concepts presented in the GraalVM chapter on Accessing Resources and shows how Spring Native provides support
 for compiling Spring applications to native executables using the GraalVM native-image compiler.
 <br><br>
-Please revisit the **[Accessing Resources doc](../../graalvm/accesing-resources/README.md)**
+Please revisit the **[Accessing Resources Doc](../../graalvm/accesing-resources/README.md)**
 
 We're leveraging the same `ResourceAccess` class, now packaged in a simple Spring Boot command-line runner.
 Note that we are not running unit tests and have therefore bypassing them with a Spring Profile.

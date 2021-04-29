@@ -17,4 +17,4 @@ native applications using _**Spring Native**_ and build on concepts shown in the
     * Accessing Resources -- **[Demo/Homework](accessing-resources/README.md)**
     * Serialization -- **[Demo/Homework](serialization/README.md)**
       <br><br>
-* GraalVM Dashboard -- **[Demo/Homework](multithreading-demo/README.md)**
+* GraalVM Dashboard: <br>Visualizing arbitrary aspects of dynamic and static compilations in Native Image **[Demo/Homework](dashboard/README.md)**
