@@ -1,5 +1,9 @@
 # Understanding GraalVM
 
+## Lab
+
+* Initialization: <br>Understanding the Class initialization strategy for Native Images -- **[Hands-on Lab](class-initialization/README.md)**
+
 ## Demo
 
 * Configuration: <br>How to configure Native Image Builds using the Java Agent -- **[Demo](assisted-configuration/README.md)**
@@ -13,6 +17,3 @@
 * GraalVM Dashboard -- **[Demo/Homework](multithreading-demo/README.md)**
 
 
-## Lab
-
-* Initialization: <br>Understanding the Class initialization strategy for Native Images -- **[Hands-on Lab](class-initialization/README.md)**
