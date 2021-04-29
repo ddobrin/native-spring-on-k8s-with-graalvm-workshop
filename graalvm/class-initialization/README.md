@@ -156,7 +156,6 @@ If the analysis sees them in the image heap -- it'll notify you and ask to initi
 For example, let's modify the code to add the creation of a Thread within class First, with a sleep of 10 seconds. You can uncomment /* Part 2 */ in the ClassInit sample class: 
 ```java
 import java.nio.charset.*;
-import java.util.UUID;
 
 public class ClassInit {
     public static void main(String[] args) {

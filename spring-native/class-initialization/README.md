@@ -137,6 +137,18 @@ public class ClassInitApplication {
 Running now the Spring AOT plugin will generate the necessary config files. The plugin is automatically executed when building a Spring Native Image:
 ```shell
 > ./mvnw clean package spring-aot:generate
+
+> tree target/generated-sources/spring-aot/src/main/resources/
+target/generated-sources/spring-aot/src/main/resources/
+└── META-INF
+    └── native-image
+        └── org.springframework.aot
+            └── spring-aot
+                ├── native-image.properties
+                ├── proxy-config.json
+                ├── reflect-config.json
+                ├── resource-config.json
+                └── serialization-config.json
 ```
 
 ```json
@@ -206,6 +218,18 @@ public class ClassInitApplication {
 We can now run the Spring AOT plugin and observe the changes:
 ```shell
 > ./mvnw clean package spring-aot:generate
+
+> > tree target/generated-sources/spring-aot/src/main/resources/
+target/generated-sources/spring-aot/src/main/resources/
+└── META-INF
+    └── native-image
+        └── org.springframework.aot
+            └── spring-aot
+                ├── native-image.properties
+                ├── proxy-config.json
+                ├── reflect-config.json
+                ├── resource-config.json
+                └── serialization-config.json
 ```
 
 ```json
