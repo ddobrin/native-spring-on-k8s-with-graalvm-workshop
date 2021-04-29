@@ -5,7 +5,7 @@ native applications using _**Spring Native**_ and build on concepts shown in the
 
 ## Lab
 
-* Building, containerizing and running a Spring Native app and `diving` into the built image -- **[Hands-on Lab](spring-native-app/README.md)**
+* Building, containerizing and running a Spring Native app, then `diving` into the Docker image -- **[Hands-on Lab](spring-native-app/README.md)**
 
 ## Demo
 
@@ -18,3 +18,9 @@ native applications using _**Spring Native**_ and build on concepts shown in the
     * Serialization -- **[Demo/Homework](serialization/README.md)**
       <br><br>
 * GraalVM Dashboard: <br>Visualizing arbitrary aspects of dynamic and static compilations in Native Image **[Demo/Homework](dashboard/README.md)**
+
+## Currently Tracked Versions:
+* Spring Boot 2.4.5 - April 15, 2021
+* Spring Native 0.9.2 (Spring Native Beta) - April 16, 2021
+* OpenJDK version "11.0.10"
+* OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)

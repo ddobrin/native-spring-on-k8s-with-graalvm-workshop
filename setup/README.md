@@ -30,6 +30,12 @@ Use whichever approach you're most comfortable with.
     * k9s - terminal UI to interact with your Kubernetes clusters [[Install]](https://github.com/derailed/k9s)
 * Favourite Java IDE
 
+## Currently Tracked Versions:
+* Spring Boot 2.4.5 - April 15, 2021
+* Spring Native 0.9.2 (Spring Native Beta) - April 16, 2021
+* OpenJDK version "11.0.10"
+* OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
+
 ## 2. Environment Validation
 
 Clone the repo and navigate to the setup folder:
