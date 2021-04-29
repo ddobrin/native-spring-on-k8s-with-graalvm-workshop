@@ -2,14 +2,18 @@
 
 This repo contains all the materials required for the `Native Spring on K8s with GraalVM` workshop.
 
-The workshop is designed to help Spring Boot developers build new / modernize existing applications using Spring Native and deploying them in Kubernetes. Basic knowledge of Spring Boot and Kubernetes is assumed for succcesful completion.
+The workshop is designed to help Spring Boot developers build new / modernize existing applications using Spring Native and deploying them in Kubernetes. 
+Basic knowledge of Spring Boot and Kubernetes is assumed for succesful completion.
 
 ---------
-## Repository layout
+## Context
 
-This repo contains sample code supporting the workshop agenda, with a focus on building Native Applications using Spring Native and GraalVM.
+This content contains sample code supporting the workshop agenda, with a focus on building Native Applications using Spring Native and GraalVM.
 
-The content is organized around a number of independent sections, each with a `README.md` file explaining how to build and run the samples or pointing out interesting areas for further exploration.
+The content is organized around a number of independent sections, each with a `README.md` file explaining how to build and run the samples, 
+or pointing out areas of interest, for further exploration. 
+
+The main focus areas are:
 * [Prerequisite Software Setup and Validation](setup/README.md) 
 * Understanding [GraalVM](graalvm/README.md)
 * Building [Spring Native](spring-native/README.md) Applications
@@ -41,16 +45,16 @@ Please follow the [environment setup and validation section](setup/README.md) `p
     * AOT compilation limitations - what do I need to know ?
         * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
         * Mitigating AOT limitations -- **[Demo](graalvm/README.md#Demo)** 
-    * Building native images with the GraalVM Maven plugin and Docker -- **[Demo](graalvm/hello-workshop/README.md)**       
+    * Building and Containerizing native images with the GraalVM Maven plugin and Docker -- **[Demo](graalvm/README.md#Demo)**       
     * Debugging and Monitoring Tools
         * VisualVM and the GraalVM Dashboard -- **[Demo](graalvm/README.md#Demo)** 
 5. [Building Spring Native Applications](spring-native/README.md)
     * What is Spring Native and why use it ?
-    * AOT compilation limitations - how do Native Hints in Spring bypass them ? -- **[Demo](spring-native/README.md#Demo)**
+    * AOT compilation limitations - how do Native Hints in Spring help bypass them ? -- **[Demo](spring-native/README.md#Demo)**
     * Spring Native's limitations - what do I need to know ?
     * Building with the Spring AOT Maven plugin 
     * Cloud Native Buildpacks -support source-to-image for native images 
-        * Building and running a Spring Native app and **_diving_** into the built image
+        * Building, containerizing and running a Spring Native app and **_diving_** into the built image
             * **[Hands-on #3](spring-native/README.md#Lab)**
     * Troubleshooting tips
 6. [Modernizing](modernize/README.md) an app to leverage Spring Native

@@ -1,8 +1,11 @@
 # Building Spring Native Applications
 
+The Demo's or Labs listed in this chapter are all specific to understanding, troubleshooting, building, monitoring
+native applications using _**Spring Native**_ and build on concepts shown in the [GraalVM chapter](../graalvm/README.md).
+
 ## Lab
 
-* Building and running a Spring Native app and `diving` into the built image -- **[Hands-on Lab](spring-native-app/README.md)**
+* Building, containerizing and running a Spring Native app and `diving` into the built image -- **[Hands-on Lab](spring-native-app/README.md)**
 
 ## Demo
 

@@ -1,5 +1,8 @@
 # Understanding GraalVM
 
+The Demo's or Labs listed in this chapter are all specific to understanding, troubleshooting, building, monitoring 
+native applications using _**GraalVM**_.
+
 ## Lab
 
 * Initialization: <br>Understanding the Class initialization strategy for Native Images -- **[Hands-on Lab](class-initialization/README.md)**
@@ -14,6 +17,8 @@
     * Accessing Resources -- **[Demo/Homework](accesing-resources/README.md)**
     * Serialization -- **[Demo/Homework](serialization/README.md)**
 <br><br>
+* Building native images with the GraalVM Maven plugin and Docker -- **[Demo/Homework](hello-workshop/README.md)
+  <br><br>
 * GraalVM Dashboard -- **[Demo/Homework](multithreading-demo/README.md)**
 
 

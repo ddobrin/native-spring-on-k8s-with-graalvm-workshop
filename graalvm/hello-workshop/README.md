@@ -1,6 +1,7 @@
 
+# Building and Containerizing Native Images with the GraalVM Maven plugin and Docker
 
-Building a JVM image with the Maven plugin
+## Building a JVM image with the Maven plugin
 ```shell
 # building a JVM message
 > mvn clean package
@@ -88,7 +89,7 @@ To check whether the native toolchain is accessible, then show native toolchain 
 [hello-workshop-0.0.1-jar-with-dependencies:57942]      [total]:  24,688.90 ms,  2.26 GB
 ```
 
-Building a native image with the native image plugin:
+Building a native image with the GraalVM Native Image plugin:
 ```shell
 # build a native image, uses the <native> profile in the pom.xml file
 >  mvn clean package -Pnative
@@ -113,6 +114,8 @@ java.vm.version: GraalVM 21.0.0.2 Java 11
 ...
 ***** done *****
 ```
+
+## Containerizing a Native Image
 
 Let's build a Dockerfile for building the native image file. Building Dockerfiles is complicated, and we will explore in 
 the Spring Native chapter of the workshop how to leverage Cloud Native Buildpacks for building lightweight Docker images:
