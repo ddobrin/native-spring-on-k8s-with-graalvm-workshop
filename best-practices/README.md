@@ -1,0 +1,1 @@
+# Best practices for designing native-friendly Spring apps and libraries   

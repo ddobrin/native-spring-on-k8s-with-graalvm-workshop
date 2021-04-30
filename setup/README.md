@@ -1,18 +1,20 @@
 # Software Prerequisites Setup and Environment Validation
 
 This setup exercise requires the completion of 3 steps:
-1. Install Prequisites
+1. Install Prerequisites
 2. Environment Validation 
-3. Build and run a validation app
+3. Build and Run a validation app 
 
 ## Context
-The workshop intends to illustrate how to build Spring Native applications, using directly the GraalVM, or while leveraging AdoptOpenJDK and Cloud-Native Buildpacks. While GraalVM offers both JIT as well as AOT builds, and we'll use it to teach concepts, we wish to illustrate cloud-native buildpack concepts while setting up a second JVM, independent of GraalVM: an OpenJDK version.
+The workshop intends to illustrate how to build Spring Native applications, leveraging respectively the GraalVM directly, 
+or AdoptOpenJDK and Cloud-Native Buildpacks. While GraalVM offers both JIT as well as AOT builds, and we'll use it to teach concepts, we wish to illustrate cloud-native buildpack concepts while setting up a second JVM, independent of GraalVM: an OpenJDK version.
 
 It is recommended to leverage  SDKMan for managing parallel versions of a Software Development Kit, or alternatively jEnv.
-If you prefer to setting up the path to the executable yourself in the IDE or Terminal window, please do so.
-Use whichever approach you're most comfortable with.
+If you prefer to set up the path to the executable yourself in the IDE or Terminal window, please do so.
 
-## 1. Prequisites 
+**Note:** Use whichever approach you're most comfortable with.
+
+## Prerequisites 
 
 * SDK Managers
     * SDKMan - managing parallel versions of multiple Software Development Kits[[Install]](https://sdkman.io/) - `recommended`
@@ -36,7 +38,7 @@ Use whichever approach you're most comfortable with.
 * OpenJDK version "11.0.10"
 * OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
 
-## 2. Environment Validation
+## Environment Validation
 
 Clone the repo and navigate to the setup folder:
 ```shell
@@ -160,7 +162,19 @@ Server Version: version.Info{Major:"1", Minor:"18+", GitVersion:"v1.18.16-gke.30
 > k9s
 ```
 
-## 3. Build and run a validation app
+## 3. Build-Run-App 
+
+Clone the repo and navigate to the setup folder, if you have not done it before:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+
+> cd setup
+> ls -l
+
+-rw-r--r--  1 dandobrin  staff  1977  9 Apr 10:56 Helloworkshop.java
+-rw-r--r--  1 dandobrin  staff  7193 30 Apr 14:47 README.md
+-rwxr-xr-x  1 dandobrin  staff  3062 30 Apr 11:19 run-dev-container.sh
+```
 
 * Build and run the app with AdoptOpenJDK
 
