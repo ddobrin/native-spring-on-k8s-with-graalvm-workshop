@@ -162,7 +162,7 @@ Server Version: version.Info{Major:"1", Minor:"18+", GitVersion:"v1.18.16-gke.30
 > k9s
 ```
 
-## 3. Build-Run-App 
+## Build-Run-App 
 
 Clone the repo and navigate to the setup folder, if you have not done it before:
 ```shell
