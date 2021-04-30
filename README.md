@@ -61,7 +61,7 @@ Please follow the [environment setup and validation section](setup/README.md) `p
     * Identifying AOT limitations in the app
     * Addressing them step-by-step - **[Demo]**
 7. Best practices for writing code for native images   
-   * for building Spring Native apps - **[Demo]**
+   * For building Spring Native apps - **[Demo]**
 8. Spring Native Roadmap
 
 #### Appendix:
