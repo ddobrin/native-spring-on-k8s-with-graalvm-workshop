@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 **/target/
+**/native
+**/image-dump
 
 ### STS ###
 .apt_generated
