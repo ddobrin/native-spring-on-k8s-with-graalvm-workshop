@@ -19,7 +19,6 @@
         <spring-native.version>0.9.2</spring-native.version>
         <jvm-image-type>jvm</jvm-image-type>
         <native-image-type>native</native-image-type>
-        <repository>docker.io/triathlonguy</repository>
     </properties>
     <dependencies>
         <dependency>
@@ -62,6 +61,11 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <layers>
+                        <enabled>true</enabled>
+                    </layers>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.springframework.experimental</groupId>
@@ -95,6 +99,9 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
+                            <layers>
+                                <enabled>true</enabled>
+                            </layers>
                             <image>
                                 <builder>paketobuildpacks/builder:base</builder>
                                 <name>${project.artifactId}-${jvm-image-type}:${project.version}</name>
