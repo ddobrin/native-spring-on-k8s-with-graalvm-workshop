@@ -1,12 +1,17 @@
+# A step-by-step example of identifying and fixing AOT limitations which the Spring AOT plugin can't automatically resolve
 
+This section shows how to start troubleshooting a Spring Boot app, when compiled with the Spring AOT plugin.
+<br>The complete code is available, and you can just uncomment each section as you make progress.
 
+Let's start from a simple Spring Boot app, listening to app events. It loads classes via reflection, serializes data and proxies interfaces:
 
 ```java
-
-# intercept an application event
+// intercept an application event
 ...
 org.springframework.boot.context.event.ApplicationReadyEvent[source=org.springframework.boot.SpringApplication@264c5d07]
 ...
+
+//Code: 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
             UUID uuid = load("com.example.demo.UUID");
@@ -26,7 +31,10 @@ org.springframework.boot.context.event.ApplicationReadyEvent[source=org.springfr
     }
 ```
 
+You can build and run the app and observe its output:
 ```shell
+> ./mvnw clean package spring-boot:run
+...
 2021-05-03 13:27:04.967  INFO 57692 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 0.398 seconds (JVM running for 0.653)
 2021-05-03 13:27:04.986  INFO 57692 --- [           main] com.example.demo.Initializer             : Assign unique ID to a Bear: 96da5e22-fb30-48a3-affa-234596b19158
 2021-05-03 13:27:04.988  INFO 57692 --- [           main] com.example.demo.DemoApplication         : Before interception...
@@ -34,9 +42,10 @@ org.springframework.boot.context.event.ApplicationReadyEvent[source=org.springfr
 2021-05-03 13:27:04.989  INFO 57692 --- [           main] com.example.demo.DemoApplication         : Before interception...
 2021-05-03 13:27:04.989  INFO 57692 --- [           main] com.example.demo.Initializer             : Invoke eat(). Proxied message: No method intercepted. Bear must be eat()ing ... After interception...
 2021-05-03 13:27:04.989  INFO 57692 --- [           main] com.example.demo.Initializer             : Serialize the ID assigned to the bear to the file: bear-id
+...
 ```
 
-Build a native image and troubleshoot the failures:
+Build now a Native Image and troubleshoot the failures:
 ```shell
 > ./mvnw clean spring-boot:build-image 
 
@@ -59,12 +68,11 @@ org.springframework.beans.factory.UnsatisfiedDependencyException:
                   To define proxy classes use -H:DynamicProxyConfigurationFiles=<comma-separated-config-files> and -H:DynamicProxyConfigurationResources=<comma-separated-config-resources> options.
 ```
 
-Spring Native indicates how to correct this error:
+Spring Native indicates for proxy AOT problems how to correct this error:
 * Add a ProxyHint with the following 4 classes to be proxied (in the listed order !!!)
 * Add manually `-H:DynamicProxyConfigurationFiles=<comma-separated-config-files>` and `-H:DynamicProxyConfigurationResources=<comma-separated-config-resources>` to the `pom.xml and configure the proxy resources
 
 Let's add a `@ProxyHint` and observe the proxy resources being generated:
-
 ```java
 @ProxyHint(typeNames = {
 		"com.example.demo.Bear",
@@ -81,6 +89,11 @@ public class DemoApplication {
 	}
 ```
 
+Build and run again:
+```shell
+> ./mvnw clean spring-boot:build-image 
+```
+
 The `proxy-config.json` will reflect the generated proxy resources:
 ```json
     [
@@ -92,10 +105,8 @@ The `proxy-config.json` will reflect the generated proxy resources:
  
 ```
 
-Build and run again:
+Let's now run the containerized app:
 ```shell
-> ./mvnw clean spring-boot:build-image 
-
 > docker run --rm troubleshooting:0.0.1-SNAPSHOT
 
 java.lang.ClassNotFoundException: com.example.demo.UUID
@@ -105,7 +116,7 @@ java.lang.ClassNotFoundException: com.example.demo.UUID
 	at com.example.demo.Initializer.onApplicationEvent(DemoApplication.java:90) ~[com.example.demo.DemoApplication:na]
 ```
 
-In this case, it indicates that a class could not be found, therefore we have to add a `@ReflectionHint` for the missing class or manually change the configuration in `reflection-proxy.json`:
+In this case, the Spring AOT plugin indicates that a class could not be found, therefore we have to add a `@ReflectionHint` for the missing class or manually change the configuration in `reflection-proxy.json`:
 ```java
 @ProxyHint(typeNames = {
 		"com.example.demo.Bear",
@@ -120,7 +131,7 @@ public class DemoApplication {
 ...
 ```
 
-We observe the last error for this demo application at this time:
+When we build and run th eapp, we can observe the third and last error for this particular demo application:
 ```shell
 > ./mvnw clean spring-boot:build-image 
 
@@ -149,14 +160,10 @@ com.oracle.svm.core.jdk.UnsupportedFeatureError: The offset of private int java.
 	...
 ```
 
-We can observe the first error occurring 
+We can observe the first error occurring in our code in `at com.example.demo.Initializer.onApplicationEvent(DemoApplication.java:99)`. 
+Inspecting the code, we can see that the code was `serializazing` and object and the error code reports an issue related to `java.util.ArrayList`.
 
-```json
-  {
-    "name": "java.util.ArrayList"
-  }
-```
-
+Let's add a `@SerializationHint` to the code for the `java.util.Arraylist` and rebuild the app:
 ```java
 // Uncomment for fixing: Proxy hint
 @ProxyHint(typeNames = {
@@ -184,6 +191,14 @@ public class DemoApplication {
 ...
 ```
 
+When building the app, we can observe that Spring AOT has added the ArrayList to `serialization-config.json` file:
+```json
+  {
+    "name": "java.util.ArrayList"
+  }
+```
+
+Running the comntainerized app should provide an erroe-free and super-fast startup:
 ```shell
 ddobrin-a01:troubleshooting dandobrin$ docker run --rm troubleshooting:0.0.1-SNAPSHOT
 2021-05-03 18:27:02.906  INFO 1 --- [           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
