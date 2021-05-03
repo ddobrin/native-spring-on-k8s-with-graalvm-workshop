@@ -61,7 +61,7 @@ Repo clone command: `git clone git@github.com:ddobrin/native-spring-on-k8s-with-
             * **[Hands-on #3](spring-native/README.md#Lab)**
     * Using a container-based Spring Native build environment
     * Troubleshooting tips
-6. [Best Practices] for designing native-friendly Spring apps and libraries
+6. [Best Practices](best-practices/README.md) for designing native-friendly Spring apps and libraries
    * Identification of AOT limitations in the app - **[Demo](best-practices/README.md)**
    * Building a Spring Native Shared Library - **[Demo](best-practices/README.md)**
    * Comparing Images
