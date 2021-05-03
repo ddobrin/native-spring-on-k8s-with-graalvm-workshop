@@ -21,21 +21,21 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 // Uncomment for fixing: Proxy hint
-@ProxyHint(typeNames = {
-		"com.example.demo.Bear",
-		"org.springframework.aop.SpringProxy",
-		"org.springframework.aop.framework.Advised",
-		"org.springframework.core.DecoratingProxy"
-})
+//@ProxyHint(typeNames = {
+//		"com.example.demo.Bear",
+//		"org.springframework.aop.SpringProxy",
+//		"org.springframework.aop.framework.Advised",
+//		"org.springframework.core.DecoratingProxy"
+//})
 
 // Uncomment for fixing Refelection hint
-@TypeHint(typeNames = {"com.example.demo.UUID"})
+//@TypeHint(typeNames = {"com.example.demo.UUID"})
 
 // Uncomment for fixing Serialization hint
-@SerializationHint(
-		types = {
-				java.util.ArrayList.class
-		})
+//@SerializationHint(
+//		types = {
+//				java.util.ArrayList.class
+//		})
 @Log4j2
 @SpringBootApplication
 public class DemoApplication {
