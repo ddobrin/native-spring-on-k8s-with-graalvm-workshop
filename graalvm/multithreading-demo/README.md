@@ -130,6 +130,14 @@ This is primarily due to Jackson files being added to the native image.
 
 Multithreading Demo Improved contains an enhanced version of the same program.
 
+In the previous section (`large`), we have noted that the `com.fasterxml` package takes a relatively large amount of space 
+in the resulting executable. 
+
+The code can be improved:
+<br>(1) At the beginning of the `large` app, Jackson JSON parser loadd the configuration file for some default values to be used in place of users input values. 
+These config values are for the purposes of the demo only, very simple, and are used only at startup.
+<br>(2) Another, expert level solution is moving the configuration initialization to a static block, in order to load it at image build time and not include the `com.fasterxml` classes into the final image.
+
 1. Download or clone the repository and navigate into the _multithreading-demo/multithreading-demo-improved_ directory:
 ```
 > git clone git@github.com:ddobrin/native-spring-on-k8s-with-graalvm-workshop.git
