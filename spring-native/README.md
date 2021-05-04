@@ -16,8 +16,9 @@ native applications using _**Spring Native**_ and build on concepts shown in the
     * Dynamic Proxies -- **[Demo/Homework](dynamic-proxy/README.md)**
     * Accessing Resources -- **[Demo/Homework](accessing-resources/README.md)**
     * Serialization -- **[Demo/Homework](serialization/README.md)**
-      <br><br>
-* GraalVM Dashboard: <br>Visualizing arbitrary aspects of dynamic and static compilations in Native Image **[Demo/Homework](dashboard/README.md)**
+      
+## GraalVM Dashboard 
+* Visualizing arbitrary aspects of dynamic and static compilations in Native Image -- **[Demo/Homework](dashboard/README.md)**
 
 ## Currently Tracked Versions:
 * Spring Boot 2.4.5 - April 15, 2021

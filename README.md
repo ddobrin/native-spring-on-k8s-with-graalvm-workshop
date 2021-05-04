@@ -48,9 +48,9 @@ Repo clone command: `git clone git@github.com:ddobrin/native-spring-on-k8s-with-
     * AOT compilation limitations - what do I need to know ?
         * Dynamic Class Loading, Reflection, Dynamic Proxies, Accessing Resources, Serialization
         * Mitigating AOT limitations -- **[Demo(s)](graalvm/README.md#Demo)** 
-    * Building and Containerizing native images with the GraalVM Maven plugin and Docker -- **[Demo](graalvm/README.md#Demo)**       
+    * Building and Containerizing native images with the GraalVM Maven plugin and Docker -- **[Demo](graalvm/README.md#maven-and-docker)**       
     * Visualization Tools
-        * GraalVM Dashboard -- **[Demo](graalvm/README.md#Demo)** 
+        * GraalVM Dashboard -- **[Demo](graalvm/README.md#graalvm-dashboard)** 
 5. [Building Spring Native Applications](spring-native/README.md) with GraalVM
     * What is Spring Native and why use it ?
     * AOT compilation limitations - how do Native Hints in Spring help bypass them ? -- **[Demo(s)](spring-native/README.md#Demo)**

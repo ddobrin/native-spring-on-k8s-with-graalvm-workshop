@@ -16,10 +16,13 @@ native applications using _**GraalVM**_.
     * Dynamic Proxies -- **[Demo/Homework](dynamic-proxy/README.md)**
     * Accessing Resources -- **[Demo/Homework](accesing-resources/README.md)**
     * Serialization -- **[Demo/Homework](serialization/README.md)**
-<br><br>
+
+
+## Maven and Docker
 * Building native images with the GraalVM Maven plugin and Docker -- **[Demo/Homework](hello-workshop/README.md)**
-  <br><br>
-* GraalVM Dashboard: <br>Visualizing arbitrary aspects of dynamic and static compilations in Native Image **[Demo/Homework](multithreading-demo/README.md)**
+  
+## GraalVM Dashboard 
+* Visualizing arbitrary aspects of dynamic and static compilations in Native Image **[Demo/Homework](multithreading-demo/README.md)**
 
 ## Currently Tracked Versions:
 * OpenJDK version "11.0.10"
