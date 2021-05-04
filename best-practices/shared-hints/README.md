@@ -3,7 +3,7 @@
 Best practices on code reuse apply to the Native apps ecosystem as well and can significantly
 improve consistency, reduce development time and troubleshooting efforts
 
-Let's use as an example the `Demo` application in the [Troubleshooting](../README.md) section and abstract all @NativeHints 
+Let's use as an example the `Demo` application in the [Troubleshooting](../troubleshooting/README.md) section and abstract all @NativeHints 
 into a separate `hints library`, now shareable across multiple applications.
 
 We'll use this shared library in the [Demo with Shared Hints](../demo-shared-hints/README.md) section, for illustration.

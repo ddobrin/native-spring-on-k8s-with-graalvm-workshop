@@ -1,6 +1,6 @@
 # Complete Demo application, reusing native hints as `shared hints`
 
-Let's use as an example the `Demo` application in the [Troubleshooting](../README.md) section and abstract all @NativeHints
+Let's use as an example the `Demo` application in the [Troubleshooting](../troubleshooting/README.md) section and abstract all @NativeHints
 into a separate `hints library`, now shareable across multiple applications.
 
 We'll build this shared library in the [Shared Hints](../shared-hints/README.md) section, for illustration, then reuse the library in the `Demo` app.
