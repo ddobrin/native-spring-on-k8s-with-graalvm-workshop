@@ -159,4 +159,10 @@ Observe the size of the dump file and the archive:
 
 We can now open the dashboard and select the file from the `target` subfolder (or open the one provided to you in the workshop).
 
-**Observations:**: the native image, after improvements, occupies only 7.7MB of space, and the dump file is listed at 13 MB, quite large.
+**Observations:** 
+* the native image, after improvements, occupies only 7.7MB of space, 
+* the dump file is listed at 13 MB, quite large.
+
+## Sources
+* GraalVM documentation - [link]https://www.graalvm.org/docs/tools/)
+

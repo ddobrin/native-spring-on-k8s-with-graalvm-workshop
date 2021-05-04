@@ -4,7 +4,7 @@
 ## Building a JVM image with the Maven plugin
 ```shell
 # building a JVM message
-> mvn clean package
+> ./mvnw clean package
 
 > ls -lart target
 ...
@@ -92,7 +92,7 @@ To check whether the native toolchain is accessible, then show native toolchain 
 Building a native image with the GraalVM Native Image plugin:
 ```shell
 # build a native image, uses the <native> profile in the pom.xml file
->  mvn clean package -Pnative
+>  ./mvnw clean package -Pnative
 
 > ls -lart target
 ...
@@ -179,9 +179,25 @@ COPY --from=builder /app/webapp /webapp
 ENTRYPOINT ["/webapp"]
 ```
 
+Let's build the Docker image with the native helloworkshop app packaged inside
+```shell
+> docker build . -t hello-workshop:graalvm-with-upx
+```
+
+The native image can be compressed inside the Docker image using the UP utility. You can enable/disable this feature in the Dockerfile:
+```shell
+# try to compress the image more with using the UPX compression tool
+RUN upx-3.96-amd64_linux/upx -7 /app/webapp
+```
+
 We can observe the small size of the image, with or without compressing the image with UPX:
 ```shell
 > docker images | grep graalvm
-hello-workshop                                   graalvm-no-upx                                          65cfe1d80270   About a minute ago   10.6MB
-hello-workshop                                   graalvm                                                 c7effbba59cd   10 minutes ago       2.8MB
+hello-workshop                                   graalvm-with-upx                                        1aa439dfbf0c   About a minute ago   2.8MB
+hello-workshop                                   graalvm-no-upx                                          65cfe1d80270   8 days ago           10.6MB
 ```
+
+## Sources
+* GraalVM documentation - [link](https://www.graalvm.org/docs/getting-started/container-images/)
+
+
