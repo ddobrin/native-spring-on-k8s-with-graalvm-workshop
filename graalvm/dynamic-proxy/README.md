@@ -95,7 +95,7 @@ The `META-INF/native-image` directory now has the configuration files. We expect
 
 ```shell
 # observe the files created under /config/META-INF/native-image
-> ls -m config/META-INF/native-image/
+> ls -m META-INF/native-image/
 jni-config.json, proxy-config.json, reflect-config.json, resource-config.json, serialization-config.json
 
 > cat META-INF/native-image/reflect-config.json
@@ -123,4 +123,7 @@ Invoking method: <get> in a <java.util.Map>. Output: 42
 Invoking method: <put> in a <java.util.Map>
 Expected an exception, got an exception
 ```
+
+## Sources
+* GraalVM documentation - [link](https://www.graalvm.org/reference-manual/native-image/Limitations/#dynamic-proxy)  and [link](https://www.graalvm.org/reference-manual/native-image/DynamicProxy/)
 

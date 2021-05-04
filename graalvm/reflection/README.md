@@ -51,6 +51,8 @@ public class Reflection {
 
 The main method invokes all methods whose names are passed as command line arguments. Run it normally and observe the output:
 ```shell
+> javac Relection.java
+
 > java Reflection StringReverser reverse "what is new"
 wen si tahw
 
@@ -151,4 +153,4 @@ This is a very convenient way to configure reflection and resources used by the 
 Next, we'll try to explore some more options how to configure the class initialization strategy for native images.
 
 ## Sources
-* GraalVM documentation - [link](https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds) 
+* GraalVM documentation - [link](https://www.graalvm.org/reference-manual/native-image/Limitations/#reflection) 

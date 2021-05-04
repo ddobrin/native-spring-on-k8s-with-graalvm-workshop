@@ -93,3 +93,6 @@ Reading config.load property: 200
 Reading config.threads property: 10
 Reading config.load property: 200
 ```
+
+## Sources
+* GraalVM documentation - [link](https://www.graalvm.org/reference-manual/native-image/Resources/) 

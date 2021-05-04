@@ -96,4 +96,6 @@ Print the first 10 Fibonacci numbers in the sequence
 21
 34
 ```
+## Sources
+* GraalVM documentation - [link](https://www.graalvm.org/reference-manual/native-image/Limitations/#serialization) 
 

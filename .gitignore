@@ -36,3 +36,6 @@ build/
 .vscode/
 .DS_Store
 **/.DS_Store
+
+*.class
+**/reports

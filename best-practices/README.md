@@ -1,4 +1,4 @@
-# Best practices for Troubleshooting and Designing native-friendly Spring apps and libraries
+# Best practices for Troubleshooting and Designing Native-friendly Spring apps / libraries
 
 While Spring Native strives to provide an `unchanged` experience when writing Spring Boot applications, regardless of 
 whether they are building a JVM or Native Image, 
