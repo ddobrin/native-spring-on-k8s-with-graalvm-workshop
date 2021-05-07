@@ -10,12 +10,13 @@ native applications using _**GraalVM**_.
 ## Demo
 
 * Configuration: <br>How to configure Native Image Builds using the Java Agent -- **[Demo](assisted-configuration/README.md)**
-<br><br>
-* Ahead-of-time Compilation Limitations:
-    * Dynamic Class Loading and Reflection -- **[Demo/Homework](reflection/README.md)**
-    * Dynamic Proxies -- **[Demo/Homework](dynamic-proxy/README.md)**
-    * Accessing Resources -- **[Demo/Homework](accesing-resources/README.md)**
-    * Serialization -- **[Demo/Homework](serialization/README.md)**
+
+## Ahead-of-time Compilation Limitations:
+
+* Dynamic Class Loading and Reflection -- **[Demo/Homework](reflection/README.md)**
+* Dynamic Proxies -- **[Demo/Homework](dynamic-proxy/README.md)**
+* Accessing Resources -- **[Demo/Homework](accesing-resources/README.md)**
+* Serialization -- **[Demo/Homework](serialization/README.md)**
 
 
 ## Maven and Docker

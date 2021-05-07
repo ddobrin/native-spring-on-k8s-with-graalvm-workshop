@@ -10,12 +10,12 @@ native applications using _**Spring Native**_ and build on concepts shown in the
 ## Demo
 
 * Initialization: <br>Understanding the Class initialization strategy with Spring Native Images -- **[Demo/Homework](class-initialization/README.md)**
-<br><br>  
-* Ahead-of-time Compilation Limitations:
-    * Dynamic Class Loading and Reflection -- **[Demo/Homework](reflection/README.md)**
-    * Dynamic Proxies -- **[Demo/Homework](dynamic-proxy/README.md)**
-    * Accessing Resources -- **[Demo/Homework](accessing-resources/README.md)**
-    * Serialization -- **[Demo/Homework](serialization/README.md)**
+
+## Ahead-of-time Compilation Limitations:
+* Dynamic Class Loading and Reflection -- **[Demo/Homework](reflection/README.md)**
+* Dynamic Proxies -- **[Demo/Homework](dynamic-proxy/README.md)**
+* Accessing Resources -- **[Demo/Homework](accessing-resources/README.md)**
+* Serialization -- **[Demo/Homework](serialization/README.md)**
       
 ## GraalVM Dashboard 
 * Visualizing arbitrary aspects of dynamic and static compilations in Native Image -- **[Demo/Homework](dashboard/README.md)**
