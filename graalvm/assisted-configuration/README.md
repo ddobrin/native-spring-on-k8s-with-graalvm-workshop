@@ -4,7 +4,9 @@ GraalVM native image build makes close world assumptions, which means all the by
 
 One area the analysis process is responsible for is to determine which classes, methods and fields need to be included in the executable. The analysis is static, so it might need some configuration to correctly include the parts of the program that use dynamic features of the language.
 
-However, this analysis cannot always completely predict all usages of the Java Reflection, Java Native Interface (JNI), Dynamic Proxy objects (java.lang.reflect.Proxy), or class path resources (Class.getResource). Undetected usages of these dynamic features need to be provided to the native-image tool in the form of configuration files.
+However, this analysis cannot always completely predict all usages of the Java Reflection, Java Native Interface (JNI), 
+Dynamic Proxy objects (java.lang.reflect.Proxy), or class path resources (Class.getResource). 
+Undetected usages of these dynamic features need to be provided to the native-image tool in the form of configuration files.
 
 In order to make preparing these configuration files easier and more convenient, GraalVM provides an agent that tracks all usages of dynamic features of an execution on a regular Java VM. 
 <br>During execution, the agent interfaces with the Java VM to intercept all calls that look up classes, methods, fields, resources, or request proxy accesses.
@@ -26,7 +28,7 @@ META-INF
     ├── resource-config.json
     └── serialization-config.json
 
-# serialization-config is a new config file added in GraaLVM 21.0 
+# Note:  serialization-config is a new config file added in GraaLVM 21.0
 ```
 **NOTE**: configurations provided in the `META-INF/native-image folder` or its subfolders are automatically picked up, as long as they are on the CLASSPATH. This is the rationale of instructing the Java agent to write config files into that folder.
 
@@ -165,6 +167,26 @@ WHAT IS NEW
 ```
 
 This is a very convenient way to configure reflection and resources used by the application for building native images.
+
+## Important observation - super-fast start-up time for native images
+```shell
+# running the JVM version
+> time java Reflection StringReverser reverse "what is new"
+wen si tahw
+
+real	0m0.102s
+user	0m0.094s
+sys	0m0.038s
+
+# running the native version
+time ./reflection StringReverser reverse "what is new"
+wen si tahw
+
+real	0m0.029s
+user	0m0.011s
+sys	0m0.017s
+```
+
 
 ## Sources
 * GraalVM documentation - [link](https://www.graalvm.org/reference-manual/native-image/BuildConfiguration/#assisted-configuration-of-native-image-builds) 

@@ -21,10 +21,10 @@ The content focuses on the following main areas:
 * [Complete](complete/README.md) Spring Native examples
 
 ----
-### `Highly recommended:`
+### Highly recommended: environment setup and validation
 **Please start** by cloning the repo, then **follow** the [environment setup and validation section](setup/README.md) `prior` to the start of the workshop.
 
-Repo clone command: `git clone git@github.com:ddobrin/native-spring-on-k8s-with-graalvm-workshop.git`
+Repository clone command: `git clone git@github.com:ddobrin/native-spring-on-k8s-with-graalvm-workshop.git`
 
 ---------
 ## Workshop - Detailed Agenda
