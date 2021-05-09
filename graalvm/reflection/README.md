@@ -51,7 +51,7 @@ public class Reflection {
 
 The main method invokes all methods whose names are passed as command line arguments. Run it normally and observe the output:
 ```shell
-> javac Relection.java
+> javac Reflection.java
 
 > java Reflection StringReverser reverse "what is new"
 wen si tahw
