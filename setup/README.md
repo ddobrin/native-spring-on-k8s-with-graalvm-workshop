@@ -1,18 +1,19 @@
 # Software Prerequisites Setup and Environment Validation
 
-This setup exercise requires the completion of 3 steps:
-1. Install Prerequisites
-2. Environment Validation 
-3. Build and Run a validation app 
+This setup exercise requires the installation of a number of pre-requisites and provides instructions to validate your environment.<br>
+Using a [Mac](https://www.graalvm.org/docs/getting-started/macos/) or [Linux](https://www.graalvm.org/docs/getting-started/linux-aarch64/) environment is recommended, 
+with [Windows](https://www.graalvm.org/docs/getting-started/windows/) not providing the same user experience at this time. 
 
 ## Context
 The workshop intends to illustrate how to build Spring Native applications, leveraging respectively the GraalVM directly, 
-or AdoptOpenJDK and Cloud-Native Buildpacks. While GraalVM offers both JIT as well as AOT builds, and we'll use it to teach concepts, we wish to illustrate cloud-native buildpack concepts while setting up a second JVM, independent of GraalVM: an OpenJDK version.
+or AdoptOpenJDK.<br>
+While GraalVM offers the ability to build traditional JVM, as well as native applications, we want to use an OpenJDK distribution to 
+illustrate cloud-native buildpack concepts, which do not require a direct installation of GraalVM.
 
 It is recommended to leverage  SDKMan for managing parallel versions of a Software Development Kit, or alternatively jEnv.
-If you prefer to set up the path to the executable yourself in the IDE or Terminal window, please do so.
+If you prefer to set up the path to the executable yourself in the IDE or Terminal window, please do so. Use whichever approach you're most comfortable with.
 
-**Note:** Use whichever approach you're most comfortable with.
+**PLEASE DON'T MISS**: When you install the GraalVM, please do not miss from the install the **`native-image`** tool, see below or at this [documentation link](https://www.graalvm.org/docs/getting-started/#native-images)
 
 ## Prerequisites 
 
@@ -21,8 +22,9 @@ If you prefer to set up the path to the executable yourself in the IDE or Termin
     * jEnv - Java SDK Manager [[Install]](https://www.jenv.be/)
 * Java and Maven
     * Java 11 OpenJDK - install with [AdoptOpenJDK downloads](https://adoptopenjdk.net/installation.html) or [SDK Manager - recommended](https://sdkman.io/jdks#AdoptOpenJDK)
-    * GraalVM 21.0.0.r11 - install with [GraalVM download](https://www.graalvm.org/) or [SDK Manager - recommended](https://sdkman.io/jdks#Oracle)
-    * Maven [[Install]](https://maven.apache.org/install.html)
+    * GraalVM 21.0.0.2-r11 - install with [GraalVM download](https://www.graalvm.org/) or [SDK Manager - recommended](https://sdkman.io/jdks#Oracle)
+* Maven 
+    * [Install](https://maven.apache.org/install.html)
 * Docker Utilities
     * Docker CLI and docker-compose [[Install]](https://www.docker.com/products/docker-desktop)
     * Dive – utility to explore Docker images and the layer contents of your Docker/OCI images [[Install]](https://github.com/wagoodman/dive)
@@ -59,12 +61,22 @@ Let's validate that the SDK Manager is properly installed. This README provides 
 > sdk list java
 ```
 
-* Install AdoptOpenJDK and GraalVM
+* Install AdoptOpenJDK and GraalVM if you haven't done so:
 ```shell
+# Install AdoptOpenJDK
+# ----------------------------
 > sdk install java 11.0.10.hs-adpt 
+
+# Install GraalVM
+# ----------------------------
 > sdk install java  21.0.0.2.r11-grl 
 
+# Install the native-image executable
+# ----------------------------
+> gu instal native-image
+
 # Validate with:
+# ----------------------------
 > sdk list java | grep 11.0.10.hs-adp
 Ex.: | >>> | 11.0.10.hs   | adpt    | installed  | 11.0.10.hs-adpt     
 
@@ -72,7 +84,7 @@ Ex.: | >>> | 11.0.10.hs   | adpt    | installed  | 11.0.10.hs-adpt
 Ex.:  |     | 21.0.0.2.r11 | grl     | installed  | 21.0.0.2.r11-grl    
 
 # Switch between Java versions
-
+# -----------------------------
 # Use AdoptOpenJDK
 > sdk use java 11.0.10.hs-adpt
 
@@ -81,9 +93,12 @@ Ex.:  |     | 21.0.0.2.r11 | grl     | installed  | 21.0.0.2.r11-grl
 
 # please validate that you have installed the `native-image` executable
 > gu install native-image
+Downloading: Component catalog from www.graalvm.org
+Processing Component: Native Image
+Component Native Image (org.graalvm.native-image) is already installed.
 ```
 
-With Java installed, let's move to validating that utilities are properly installed.
+With Java installed, let's move on to validating that utilities are properly installed.
 
 * Maven 
 

@@ -4,8 +4,8 @@ This repo contains all the materials required for the `Native Spring on K8s with
 
 The workshop is designed to help Spring Boot developers build new / modernize existing applications using Spring Native and deploy them in Kubernetes. 
 Basic knowledge of Spring Boot and Kubernetes is assumed for successful completion.
+---
 
----------
 ## Context
 
 This content contains sample code supporting the workshop agenda, with a focus on building Native Applications using Spring Native and GraalVM.
@@ -19,12 +19,17 @@ The content focuses on the following main areas:
 * Building [Spring Native](spring-native/README.md) Applications with GraalVM
 * [Best Practices](best-practices/README.md) for designing native-friendly Spring apps and libraries
 * [Complete](complete/README.md) Spring Native examples
-
 ----
-### Highly recommended: environment setup and validation
-**Please start** by cloning the repo, then **follow** the [environment setup and validation section](setup/README.md) `prior` to the start of the workshop.
+## Repository
 
-Repository clone command: `git clone git@github.com:ddobrin/native-spring-on-k8s-with-graalvm-workshop.git`
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+---------
+
+## Environment setup and validation
+**Please start** by cloning the repo, then **follow** the [environment setup and validation section](setup/README.md) `prior` to the start of the workshop.
 
 ---------
 ## Workshop - Detailed Agenda
