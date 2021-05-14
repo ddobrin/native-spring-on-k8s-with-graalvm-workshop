@@ -8,6 +8,24 @@ Please revisit the **[Accessing Resources Doc](../../graalvm/accesing-resources/
 We're leveraging the same `ResourceAccess` class, now packaged in a simple Spring Boot command-line runner.
 Note that we are not running unit tests and have therefore bypassing them with a Spring Profile.
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/spring-native/accessing-resources
+```
+----
+
+## The sample
+
 For the Spring Native version of the sample, we will provision the same config file, this time in a subfolder:
 ```shell
 > tree src/data

@@ -1,6 +1,24 @@
 
 # Building and Containerizing Native Images with the GraalVM Maven plugin and Docker
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/hello-workshop
+```
+----
+
+## The sample
+
 ## Building a JVM image with the Maven plugin
 ```shell
 # building a JVM message

@@ -5,6 +5,24 @@ for compiling Spring applications to native executables using the GraalVM native
 <br><br>
 Please revisit the **[Dynamic Proxy doc](../../graalvm/dynamic-proxy/README.md)**
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/spring-native/dynamic-proxy
+```
+----
+
+## The sample
+
 We're leveraging the same `DynamicProxy` class, now packaged in a simple Spring Boot command-line runner.
 Note that we are not running unit tests and have therefore bypassing them with a Spring Profile.
 ```java

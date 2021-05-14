@@ -27,6 +27,8 @@ This workshop repository can be cloned to your machine as follows:
 > git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
 ```
 
+Full samples are provided for each lab or demo! 
+
 All samples are relative to the repository root, for ex.:
 ```shell
 # Petclinic

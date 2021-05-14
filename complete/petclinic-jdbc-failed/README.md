@@ -13,10 +13,23 @@ The original Spring Boot PetClinic project is available at: `https://github.com/
 Let's explore why this version of Petclinic fails ... or, better said... what did we do in the original project 
 to build a proper Native Image for it?
 
-Working project available at:
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
 ```shell
-<root> native-spring-on-k8s-with-graalvm-workshop/complete/petclinic-jdbc
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
 ```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/complete/petclinic-jdbc-failed
+```
+----
+
+## The Project
 
 In the working project, let's run this command and observe the following resource config file 
 ```shell

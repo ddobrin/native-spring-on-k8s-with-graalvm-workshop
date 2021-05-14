@@ -7,6 +7,24 @@ The Java architects have announced that the existing serialization mechanism wil
 
 At this time, to support serialization in native images, class metadata must be provided in the `serialization-config.json` file, manually or collected using the javaagent.
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/serialization
+```
+----
+
+## The sample
+
 ```shell
 > javac Serialization.java 
 

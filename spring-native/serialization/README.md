@@ -5,6 +5,24 @@ for compiling Spring applications to native executables using the GraalVM native
 <br><br>
 Please revisit the **[Serialization Doc](../../graalvm/serialization/README.md)**
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/spring-native/serialization
+```
+----
+
+## The sample
+
 We're leveraging the same `Serialization` class, now packaged in a simple Spring Boot command-line runner:
 ```java
 package com.example;

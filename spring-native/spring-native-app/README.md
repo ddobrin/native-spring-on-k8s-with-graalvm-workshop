@@ -10,6 +10,24 @@ As an application, let's use a simple Java Function, for which you can use the f
 * `Kubernetes` deployment and service
 * `Knative` service
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/spring-native/spring-native-app
+```
+----
+
+## The sample
+
 The code is simple, with the focus on the build aspects:
 ```java
 @SpringBootApplication

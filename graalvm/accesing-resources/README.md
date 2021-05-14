@@ -8,6 +8,24 @@ Resources to be included or excluded can be specified in 2 ways:
 * by providing the resource-config.json, created manually or generated using the javaagent
 * by specifying individual resources directly 
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/accesing-resources
+```
+----
+
+## The sample
+
 Let's start with the `ResourceAccess` class which reads a `config.properties` file:
 ```java
 import java.io.IOException;

@@ -6,7 +6,23 @@
 * OpenJDK version "11.0.10"
 * OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
 
-### Project 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/complete/clr-native
+```
+----
+
+## The Project 
 To build the native application packaged in a lightweight container:
 ```
 # JVM app image

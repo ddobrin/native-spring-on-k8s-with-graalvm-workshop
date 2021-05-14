@@ -3,8 +3,25 @@
 This section shows how to start troubleshooting a Spring Boot app, when compiled with the Spring AOT plugin.
 <br>The complete code is available, and you can just uncomment each section as you make progress.
 
-Let's start from a simple Spring Boot app, listening to app events. It loads classes via reflection, serializes data and proxies interfaces:
+----
+## The code
 
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/best-practices/troubleshooting
+```
+----
+
+## The sample
+
+Let's start from a simple Spring Boot app, listening to app events. It loads classes via reflection, serializes data and proxies interfaces:
 ```java
 // intercept an application event
 ...

@@ -10,6 +10,24 @@ Let's explore an example application consisting of a few classes in order to:
 * get a better understanding of the implications of initialization at runtime or build time 
 * how to configure the initialization strategy
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/class-initialization
+```
+----
+
+## The sample
+
 ## Part 1
 Let's start from a simple Java app:
 ```java

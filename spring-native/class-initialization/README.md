@@ -5,6 +5,24 @@ for compiling Spring applications to native executables using the GraalVM native
 <br><br>
 Please revisit the **[Class Initialization Strategy doc](../../graalvm/class-initialization/README.md)** 
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/spring-native/class-initialization
+```
+----
+
+## The sample
+
 ## Part 1
 We're leveraging the same ClassInit class, now packaged in a simple Spring Boot command-line runner:
 ```java

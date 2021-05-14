@@ -10,6 +10,24 @@ Therefore, all dynamic proxy classes need to be generated at native image build 
 One of the language features that require explicit configuration besides Reflection are JDK proxies. 
 We can register the classes which will be proxied at runtime by using the same javaagent as in the dynamic classloading and reflection sample.
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/dynamic-proxy
+```
+----
+
+## The sample
+
 Let's consider the following `DynamicProxy` Java class:
 ```java
 import java.lang.reflect.Proxy;

@@ -11,6 +11,24 @@ The Multithreading demo offers two sub-projects, each built with Maven:
 * Multithreading Demo Large 
 * Multithreading Demo Improved.
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/multithreading-demo
+```
+----
+
+## The sample projects
+
 ## The GraalVM Dashboard
 
 The Dashboard is a web-based visualization tool helping you make sense of collected information on methods compilation, 

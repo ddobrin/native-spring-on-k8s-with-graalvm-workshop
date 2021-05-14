@@ -3,6 +3,23 @@
 Best practices on code reuse apply to the Native apps ecosystem as well and can significantly
 improve consistency, reduce development time and troubleshooting efforts
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/best-practices/shared-hints
+```
+----
+
+## The sample
 Let's use as an example the `Demo` application in the [Troubleshooting](../troubleshooting/README.md) section and abstract all @NativeHints 
 into a separate `hints library`, now shareable across multiple applications.
 

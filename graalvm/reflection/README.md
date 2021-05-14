@@ -19,6 +19,24 @@ The following aspects are included in this category:
 * invoking methods and accessing fields reflectively 
 * using other classes in the package `java.lang.reflect`
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/reflection
+```
+----
+
+## The sample
+
 Let's work through a sample based on `Reflection.java`:
 ```java
 import java.lang.reflect.Method;

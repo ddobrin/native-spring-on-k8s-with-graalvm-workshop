@@ -11,6 +11,24 @@ Undetected usages of these dynamic features need to be provided to the native-im
 In order to make preparing these configuration files easier and more convenient, GraalVM provides an agent that tracks all usages of dynamic features of an execution on a regular Java VM. 
 <br>During execution, the agent interfaces with the Java VM to intercept all calls that look up classes, methods, fields, resources, or request proxy accesses.
 
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/graalvm/assisted-configuration
+```
+----
+
+## The sample
+
 The agent allows you to create the configuration files, as well as merge freshly generated config files in subsequent runs:
 ```shell
 # create

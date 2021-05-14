@@ -15,7 +15,23 @@ In this exercise, let's explore:
 * how to containerize the Petclinic app and create a JVM and a Native Docker image with Cloud-native Buildpacks
 * `dive` into the newly created Docker containers
 
-# Build
+----
+## The code
+
+This workshop repository can be cloned to your machine as follows:
+```shell
+> git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
+```
+
+**`Full example code is provided for this section !`**
+
+This example sample is relative to the repository root:
+```shell
+<repo-root>/complete/petclinic-jdbc
+```
+----
+
+## The Project
 
 ## Build code as a JVM app using the Spring Boot Maven plugin
 ```shell 
