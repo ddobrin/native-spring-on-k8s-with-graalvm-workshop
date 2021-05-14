@@ -68,13 +68,7 @@ Caused by: java.nio.charset.UnsupportedCharsetException: UTF-32LE
 	... 4 more
 ```
 
-There is a lesser documented feature in GraalVM to resolve this issue by including all charsets, which you can test if you like, for your own information:
-```shell 
-> native-image -H:+AddAllCharsets ClassInit
-```
-
-This does not help us, though, to understand the Dynamic Class Loading issue we are facing and how to address them. 
-We're more interested in the class initialization details at this time. 
+We are interested to understand the class initialization details at this time. 
 
 To track which classes were initialized and why, one can use the flag `-H:+PrintClassInitialization`. 
 This flag greatly helps to configure the image build to work as intended. The goal is to have as many classes as possible initialized at build time, yet keep the correct semantics of the program !

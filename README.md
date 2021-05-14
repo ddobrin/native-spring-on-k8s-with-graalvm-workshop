@@ -26,6 +26,13 @@ This workshop repository can be cloned to your machine as follows:
 ```shell
 > git clone https://github.com/ddobrin/native-spring-on-k8s-with-graalvm
 ```
+
+All samples are relative to the repository root, for ex.:
+```shell
+# Petclinic
+<repo-root>/complete/petclinic-jdbc
+```
+
 ---------
 
 ## Environment setup and validation
