@@ -4,6 +4,7 @@ This repo contains all the materials required for the `Native Spring on K8s with
 
 The workshop is designed to help Spring Boot developers build new / modernize existing applications using Spring Native and deploy them in Kubernetes. 
 Basic knowledge of Spring Boot and Kubernetes is assumed for successful completion.
+
 ---
 
 ## Context
