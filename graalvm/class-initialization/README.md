@@ -70,8 +70,8 @@ Let's now build a native image out of it, run it, and explore the output:
 > ./classinit
 ```
 
-It breaks with the following exception, because the Charset "UTF_32_LE", as non-standard, is not by default included in the native image can't be found:
-```
+The execution breaks with the exception listed below:
+```shell
 Exception in thread "main" java.lang.ExceptionInInitializerError
 	at com.oracle.svm.core.classinitialization.ClassInitializationInfo.initialize(ClassInitializationInfo.java:315)
 	at First.<clinit>(ClassInit.java:11)
@@ -85,8 +85,22 @@ Caused by: java.nio.charset.UnsupportedCharsetException: UTF-32LE
 	at com.oracle.svm.core.classinitialization.ClassInitializationInfo.initialize(ClassInitializationInfo.java:295)
 	... 4 more
 ```
+ Let's understand what is happening !
 
-We are interested to understand the class initialization details at this time. 
+At runtime, the platform initializes static fields: 
+```java
+class Second {
+    private static final Charset UTF_32_LE = Charset.forName("UTF-32LE");
+
+    public void printIt() {
+        System.out.println("Unicode 32 bit CharSet: " + UTF_32_LE);
+    }
+}
+```
+It calls the Charset.forName() methods. This works for UTF-8 and UTF-16LE because these charsets are available in the image. 
+However, it does fail on the UTF_32_LE field because, as non-standard, it is not by default included in the native image and thus can't be found.
+
+What we are interested in is to understand the class initialization details at this time. 
 
 To track which classes were initialized and why, one can use the flag `-H:+PrintClassInitialization`. 
 This flag greatly helps to configure the image build to work as intended. The goal is to have as many classes as possible initialized at build time, yet keep the correct semantics of the program !
