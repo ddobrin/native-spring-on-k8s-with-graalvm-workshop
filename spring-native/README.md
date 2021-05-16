@@ -5,6 +5,7 @@ native applications using _**Spring Native**_ and build on concepts shown in the
 
 ## Lab
 
+* Accessing Resources in Spring Native Images -- **[Hands-on Lab](accessing-resources/README.md)
 * Building, containerizing and running a Spring Native app, then `diving` into the Docker image -- **[Hands-on Lab](spring-native-app/README.md)**
 
 ## Demo

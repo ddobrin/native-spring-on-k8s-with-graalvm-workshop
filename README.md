@@ -46,12 +46,15 @@ All samples are relative to the repository root, for ex.:
 
 1. Introductions
 2. [Setup Validation](setup/README.md) - say "Hello Workshop" 
-    * **[Hands-on Lab #1](setup/README.md#Build-Run-App)**
-3. Demystifying Native Images
+    * **[Hands-on Setup Lab](setup/README.md#Build-Run-App)**
+3. Let's get started - How fast are your pets? Let's build some images for them !
+    * **[Hands-on Lab #1](complete/petclinic-jdbc/README.md)**
+4. Demystifying Native Images
     * Let's talk about JVM vs Native
     * Introducing ahead-of-time compilation (AOT)
     * Making close-world assumptions
-4. [Understanding GraalVM](graalvm/README.md)
+    * When to modernize apps with native images ? Let's see the use-cases
+5. [Understanding GraalVM](graalvm/README.md)
     * GraalVM Architecture
     * Native Image technology for ahead-of-time compilation
     * Build configuration for a native image build process
@@ -66,21 +69,23 @@ All samples are relative to the repository root, for ex.:
     * Building and Containerizing native images with the GraalVM Maven plugin and Docker -- **[Demo](graalvm/README.md#maven-and-docker)**       
     * Visualization Tools
         * GraalVM Dashboard -- **[Demo](graalvm/README.md#graalvm-dashboard)** 
-5. [Building Spring Native Applications](spring-native/README.md) with GraalVM
+6. [Building Spring Native Applications](spring-native/README.md) with GraalVM
     * What is Spring Native and why use it ?
     * AOT compilation limitations - how do Native Hints in Spring help bypass them ? -- **[Demo(s)](spring-native/README.md#Demo)**
+       * Accessing Resources in Spring Native Images 
+         * **[Hands-on Lab #3](spring-native/README.md#Lab)**
     * Spring Native's limitations - what do I need to know ?
     * Building with the Spring AOT Maven plugin 
     * Cloud Native Buildpacks -support source-to-image for native images 
         * Building, containerizing and running a Spring Native app and **_diving_** into the built image
-            * **[Hands-on #3](spring-native/README.md#Lab)**
+            * **[Optional Hands-on Lab #4](spring-native/README.md#Lab)**
     * Using a container-based Spring Native build environment
     * Troubleshooting tips
-6. [Best Practices](best-practices/README.md) for designing native-friendly Spring apps and libraries
+7. [Best Practices](best-practices/README.md) for designing native-friendly Spring apps and libraries
    * Identification of AOT limitations in the app - **[Demo](best-practices/README.md)**
    * Building a Spring Native Shared Library - **[Demo](best-practices/README.md)**
    * Comparing Images
-7. Spring Native Roadmap
+8. Spring Native Roadmap
 
 #### Appendix:
    * [Complete Spring Native examples](complete/README.md)
