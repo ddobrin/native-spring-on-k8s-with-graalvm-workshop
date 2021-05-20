@@ -11,6 +11,7 @@ native applications using _**Spring Native**_ and build on concepts shown in the
 ## Demo
 
 * Initialization: <br>Understanding the Class initialization strategy with Spring Native Images -- **[Demo/Homework](class-initialization/README.md)**
+* Serialization with Tracing Agent-- **[Demo/Homework](serialization-agent/README.md)**
 
 ## Ahead-of-time Compilation Limitations:
 * Dynamic Class Loading and Reflection -- **[Demo/Homework](reflection/README.md)**

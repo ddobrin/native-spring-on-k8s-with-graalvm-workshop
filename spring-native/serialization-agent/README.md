@@ -1,9 +1,11 @@
-# Serialization in Spring Native Images
+# Serialization in Spring Native Images - using Tracing Agent
 
 This application builds upon the concepts presented in the GraalVM chapter on Serialization and shows how Spring Native provides support
 for compiling Spring applications to native executables using the GraalVM native-image compiler.
 <br><br>
-Please revisit the **[Serialization Doc](../../graalvm/serialization/README.md)**
+Please revisit the **[Serialization Doc](../../graalvm/serialization/README.md)** as well as the **[Serialization with Spring Native Doc](../../spring-native/serialization/README.md)**
+
+This application shows an alternative to the Serialization sample, this time with the Java Agent running, precluding you to add the @SerializationHint in the app.
 
 ----
 ## The code
@@ -17,7 +19,7 @@ This workshop repository can be cloned to your machine as follows:
 
 This example sample is relative to the repository root:
 ```shell
-<repo-root>/spring-native/serialization
+<repo-root>/spring-native/serialization-agent
 ```
 ----
 
@@ -97,32 +99,7 @@ Print the first 10 Fibonacci numbers in the sequence
 34
 ```
 
-Java serialization requires class metadata information in order to function and must be specified during the generation of a native image generation.
-
-However, Java serialization has been a persistent source of security vulnerabilities.
-The Java architects have announced that the existing serialization mechanism will be replaced with a new mechanism avoiding these problems in the near future.
-
-At this time, to support serialization in Spring Native Images, class metadata must be provided in the `serialization-config.json` file. 
-The Spring AOT plugin will generate the required configuration, provided that we provide the correct `@NativeHints`.
-
-GraalVM 21.0 introduced the `serialization-json` configuration and Spring Native as of Beta 0.9.2 introduced the very helpful `@SerializationHint`.
-
-Spring AOT relies on the @ResourceHint provided in the `SerializationApplication` class to generate the proper configurations
-```java
-@SerializationHint(
-		types = {
-				java.util.ArrayList.class,
-				java.lang.Long.class,
-				java.lang.Number.class
-		}
-)
-@SpringBootApplication
-public class SerializationApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(Serialization.class, args);
-	}
-}
-```
+You can observe that, due to the Java agent being configured in the pom.xml, it will generate the configuration for you.
 
 You can run the Spring AOT plugin and observe that correct configurations have been generated:
 ```shell
