@@ -86,12 +86,12 @@ org.springframework.beans.factory.UnsatisfiedDependencyException:
 ```
 
 Spring Native indicates for proxy AOT problems how to correct this error:
-* Add a ProxyHint with the following 4 classes to be proxied (in the listed order !!!)
+* Add a @JdkProxyHint with the following 4 classes to be proxied (in the listed order !!!)
 * Add manually `-H:DynamicProxyConfigurationFiles=<comma-separated-config-files>` and `-H:DynamicProxyConfigurationResources=<comma-separated-config-resources>` to the `pom.xml and configure the proxy resources
 
-Let's add a `@ProxyHint` and observe the proxy resources being generated:
+Let's add a `@JdkProxyHint` and observe the proxy resources being generated:
 ```java
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"com.example.demo.Bear",
 		"org.springframework.aop.SpringProxy",
 		"org.springframework.aop.framework.Advised",
@@ -135,7 +135,7 @@ java.lang.ClassNotFoundException: com.example.demo.UUID
 
 In this case, the Spring AOT plugin indicates that a class could not be found, therefore we have to add a `@ReflectionHint` for the missing class or manually change the configuration in `reflection-proxy.json`:
 ```java
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"com.example.demo.Bear",
 		"org.springframework.aop.SpringProxy",
 		"org.springframework.aop.framework.Advised",
@@ -183,7 +183,7 @@ Inspecting the code, we can see that the code was `serializazing` and object and
 Let's add a `@SerializationHint` to the code for the `java.util.Arraylist` and rebuild the app:
 ```java
 // Uncomment for fixing: Proxy hint
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"com.example.demo.Bear",
 		"org.springframework.aop.SpringProxy",
 		"org.springframework.aop.framework.Advised",

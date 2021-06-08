@@ -37,7 +37,7 @@ hints.SharedHints
 
 All hints we wish to reuse are provided in the `SharedHints` class: 
 ```java
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
     "com.example.demo.Bear",
     "org.springframework.aop.SpringProxy",
     "org.springframework.aop.framework.Advised",

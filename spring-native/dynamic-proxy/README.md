@@ -82,11 +82,11 @@ Therefore, all dynamic proxy classes need to be generated at native image build 
 
 One of the language features that require explicit configuration besides Reflection are JDK proxies.
 
-When using Spring Native, we will be using a `@ProxyHint`, to indicate to the GraalVM compiler which configuration is required to be generated.
+When using Spring Native, we will be using a `@JdkProxyHint`, to indicate to the GraalVM compiler which configuration is required to be generated.
 <br>
-Let's add the @ProxyHint, to address the Proxy creation in `Map proxyInstance = (Map) Proxy.newProxyInstance(`
+Let's add the @JdkProxyHint, to address the Proxy creation in `Map proxyInstance = (Map) Proxy.newProxyInstance(`
 ```java
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"java.util.Map"
 })
 ```
@@ -100,7 +100,7 @@ Let's also add the @TypeHint, to address the creation of the java.util.Map Class
 
 The `DynamicProxyApplication` is now fully configured:
 ```java
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"java.util.Map"
 })
 @TypeHint(typeNames = {
