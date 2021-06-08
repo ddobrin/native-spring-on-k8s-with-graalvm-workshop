@@ -2,10 +2,10 @@ package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.nativex.hint.ProxyHint;
+import org.springframework.nativex.hint.JdkProxyHint;
 import org.springframework.nativex.hint.TypeHint;
 
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"java.util.Map"
 })
 @TypeHint(typeNames = {

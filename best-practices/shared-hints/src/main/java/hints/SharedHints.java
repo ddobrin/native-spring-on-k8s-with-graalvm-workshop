@@ -1,6 +1,6 @@
 package hints;
 
-import org.springframework.nativex.hint.ProxyHint;
+import org.springframework.nativex.hint.JdkProxyHint;
 import org.springframework.nativex.hint.SerializationHint;
 import org.springframework.nativex.hint.TypeHint;
 import org.springframework.nativex.type.HintDeclaration;
@@ -10,7 +10,7 @@ import org.springframework.nativex.type.TypeSystem;
 import java.util.Collections;
 import java.util.List;
 
-@ProxyHint(typeNames = {
+@JdkProxyHint(typeNames = {
 		"com.example.demo.Bear",
 		"org.springframework.aop.SpringProxy",
 		"org.springframework.aop.framework.Advised",

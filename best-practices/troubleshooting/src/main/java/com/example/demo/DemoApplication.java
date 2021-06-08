@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
-import org.springframework.nativex.hint.ProxyHint;
+import org.springframework.nativex.hint.JdkProxyHint;
 import org.springframework.nativex.hint.SerializationHint;
 import org.springframework.nativex.hint.TypeHint;
 import org.springframework.stereotype.Component;
@@ -21,7 +21,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 // Uncomment for fixing: Proxy hint
-//@ProxyHint(typeNames = {
+//@JdkProxyHint(typeNames = {
 //		"com.example.demo.Bear",
 //		"org.springframework.aop.SpringProxy",
 //		"org.springframework.aop.framework.Advised",
