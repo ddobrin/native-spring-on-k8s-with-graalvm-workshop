@@ -13,7 +13,7 @@
 	<groupId>org.springframework.experimental</groupId>
 	<artifactId>spring-native-sample-parent</artifactId>
 	<name>Spring Native sample parent</name>
-	<version>${spring-native.version}</version>
+	<version>0.10.0</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -22,9 +22,6 @@
 
 		<!-- Customize native-image arguments with this property -->
 		<native.build.args/>
-
-		<!-- Specify main class to allow native-image-maven-plugin to find it -->
-		<main.class/>
 
 		<!-- `tiny` builder allows small footprint and reduced surface attack, you can also use `base` (the default) or `full` builders to have more tooling available in the image for an improved developer experience -->
 		<builder>paketobuildpacks/builder:tiny</builder>
@@ -46,13 +43,14 @@
 								<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
 								<BP_NATIVE_IMAGE_BUILD_ARGUMENTS>${native.build.args}</BP_NATIVE_IMAGE_BUILD_ARGUMENTS>
 							</env>
+							<pullPolicy>IF_NOT_PRESENT</pullPolicy>
 						</image>
 					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.springframework.experimental</groupId>
 					<artifactId>spring-aot-maven-plugin</artifactId>
-					<version>${spring-native.version}</version>
+					<version>0.10.0</version>
 					<executions>
 						<execution>
 							<id>test-generate</id>
@@ -69,20 +67,26 @@
 					</executions>
 				</plugin>
 				<plugin>
-					<groupId>org.graalvm.nativeimage</groupId>
-					<artifactId>native-image-maven-plugin</artifactId>
-					<version>21.1.0</version>
+					<groupId>org.graalvm.buildtools</groupId>
+					<artifactId>native-maven-plugin</artifactId>
+					<version>${native.buildtools.version}</version>
 					<configuration>
-						<mainClass>${main.class}</mainClass>
 						<imageName>${project.artifactId}</imageName>
 						<buildArgs>${native.build.args}</buildArgs>
 					</configuration>
 					<executions>
 						<execution>
 							<goals>
-								<goal>native-image</goal>
+								<goal>build</goal>
 							</goals>
 							<phase>package</phase>
+						</execution>
+						<execution>
+							<id>test</id>
+							<goals>
+								<goal>test</goal>
+							</goals>
+							<phase>test</phase>
 						</execution>
 					</executions>
 				</plugin>
@@ -95,6 +99,14 @@
 			<id>spring-release</id>
 			<name>Spring release</name>
 			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-milestone</id>
+			<name>Spring milestone</name>
+			<url>https://repo.spring.io/milestone</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
@@ -118,6 +130,14 @@
 			</snapshots>
 		</repository>
 		<repository>
+			<id>spring-milestone</id>
+			<name>Spring milestone</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
 			<id>spring-snapshot</id>
 			<name>Spring Snapshots</name>
 			<url>https://repo.spring.io/snapshot</url>
@@ -132,7 +152,7 @@
 			<dependency>
 				<groupId>org.springframework.experimental</groupId>
 				<artifactId>spring-native</artifactId>
-				<version>${spring-native.version}</version>
+				<version>0.10.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -145,18 +165,29 @@
 	</dependencyManagement>
 
 	<profiles>
-		<!-- Enable building a native image using a local installation of native-image with GraalVM native-image-maven-plugin -->
+		<!-- Enable building a native image using a local installation of native-image with GraalVM native-maven-plugin -->
 		<profile>
-			<id>native-image</id>
+			<id>native</id>
 			<properties>
-				<!-- Avoid a clash between Spring Boot repackaging and native-image-maven-plugin -->
+				<!-- Avoid a clash between Spring Boot repackaging and native-maven-plugin -->
 				<classifier>exec</classifier>
+
+				<native.buildtools.version>0.9.0</native.buildtools.version>
 			</properties>
+			<dependencies>
+				<!-- Won't be need as of JUnit 5.8, see https://github.com/junit-team/junit5/issues/2619 -->
+				<dependency>
+					<groupId>org.graalvm.buildtools</groupId>
+					<artifactId>junit-platform-native</artifactId>
+					<version>${native.buildtools.version}</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.graalvm.nativeimage</groupId>
-						<artifactId>native-image-maven-plugin</artifactId>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>
