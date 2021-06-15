@@ -26,4 +26,4 @@ native applications using _**Spring Native**_ and build on concepts shown in the
 * Spring Boot 2.5.1 - May 2021
 * Spring Native 0.10.0 (Spring Native Beta) - June 2021
 * OpenJDK version "11.0.10"
-* OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
+* OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)

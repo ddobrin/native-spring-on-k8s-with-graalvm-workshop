@@ -4,7 +4,7 @@
 * Spring Boot 2.5.1 - May 2021
 * Spring Native 0.10.0 (Spring Native Beta) - June 2021
 * OpenJDK version "11.0.10"
-* OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
+* OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)
 
 ### `Original Project`
 The original Spring Boot PetClinic project is available at: `https://github.com/spring-projects/spring-petclinic`
@@ -49,7 +49,7 @@ Building an executable application with the GraalVM compiler leverages the follo
 ```shell 
 # switch to the GraalVM JDK for this build
 # ex, when using SDKman
-> sdk use java  21.0.0.2.r11-grl
+> sdk use java 21.1.0.r11-grl 
 
 # build and run code using
 > ./mvnw clean package -Pnative

@@ -129,7 +129,7 @@
 			<dependency>
 				<groupId>org.springframework.experimental</groupId>
 				<artifactId>spring-native</artifactId>
-				<version>0.10.0</version>
+				<version>${spring-native.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

@@ -39,3 +39,11 @@ build/
 
 *.class
 **/reports
+
+# clean up later
+graalvm/assisted-configuration/META-INF/
+graalvm/assisted-configuration/reflection
+graalvm/serialization/serialization
+graalvm/serialization/serialized_objects_in_stream
+spring-native/serialization-agent/serialized_objects_in_stream
+spring-native/serialization/serialized_objects_in_stream

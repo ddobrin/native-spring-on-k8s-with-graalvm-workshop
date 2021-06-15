@@ -71,9 +71,9 @@ The GraalVM Maven plugin:
 To check whether the native toolchain is accessible, then show native toolchain information and image’s build settings:
 ```shell
 > native-image --native-image-info -jar target/hello-workshop-0.0.1-jar-with-dependencies.jar 
-[hello-workshop-0.0.1-jar-with-dependencies:57942]    classlist:     764.72 ms,  0.96 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]        (cap):   3,691.80 ms,  0.96 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]        setup:   4,747.20 ms,  0.96 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]    classlist:     741.15 ms,  0.96 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]        (cap):   1,807.69 ms,  0.96 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]        setup:   2,948.80 ms,  0.96 GB
 # Building image for target platform: org.graalvm.nativeimage.Platform$DARWIN_AMD64
 # Using native toolchain:
 #   Name: LLVM (clang)
@@ -82,29 +82,30 @@ To check whether the native toolchain is accessible, then show native toolchain 
 #   Target architecture: x86_64
 #   Path: /usr/bin/cc
 # Using CLibrary: com.oracle.svm.core.c.libc.NoLibC
-[hello-workshop-0.0.1-jar-with-dependencies:57942]     (clinit):     183.83 ms,  1.20 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]     (clinit):     118.79 ms,  1.22 GB
 # Static libraries:
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/svm/clibraries/darwin-amd64/liblibchelper.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/static/darwin-amd64/libnet.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/svm/clibraries/darwin-amd64/libdarwin.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/static/darwin-amd64/libnio.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/static/darwin-amd64/libjava.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/static/darwin-amd64/libfdlibm.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/static/darwin-amd64/libzip.a
-#   ../../../../../.sdkman/candidates/java/21.0.0.2.r11-grl/lib/svm/clibraries/darwin-amd64/libjvm.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/svm/clibraries/darwin-amd64/liblibchelper.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libnet.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/svm/clibraries/darwin-amd64/libdarwin.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libnio.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libjava.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libfdlibm.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libzip.a
+#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/svm/clibraries/darwin-amd64/libjvm.a
 # Other libraries: pthread,-framework Foundation,dl,z
-[hello-workshop-0.0.1-jar-with-dependencies:57942]   (typeflow):   3,418.21 ms,  1.20 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]    (objects):   3,963.40 ms,  1.20 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]   (features):     166.44 ms,  1.20 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]     analysis:   7,910.77 ms,  1.20 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]     universe:     366.48 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]      (parse):     724.56 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]     (inline):   1,839.01 ms,  1.67 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]    (compile):   6,227.15 ms,  2.26 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]      compile:   9,252.53 ms,  2.26 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]        image:   1,244.28 ms,  2.26 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]        write:     276.36 ms,  2.26 GB
-[hello-workshop-0.0.1-jar-with-dependencies:57942]      [total]:  24,688.90 ms,  2.26 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]   (typeflow):   3,228.26 ms,  1.22 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]    (objects):   3,087.61 ms,  1.22 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]   (features):     255.54 ms,  1.22 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]     analysis:   6,856.35 ms,  1.22 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]     universe:     315.42 ms,  1.22 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]      (parse):     676.01 ms,  1.68 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]     (inline):     757.57 ms,  1.68 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]    (compile):   3,510.89 ms,  2.31 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]      compile:   5,369.62 ms,  2.31 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]        image:   1,021.00 ms,  2.31 GB
+[hello-workshop-0.0.1-jar-with-dependencies:68614]        write:     299.27 ms,  2.31 GB
+# Printing build artifacts to: hello-workshop-0.0.1-jar-with-dependencies.build_artifacts.txt
+[hello-workshop-0.0.1-jar-with-dependencies:68614]      [total]:  17,688.32 ms,  2.31 GB
 ```
 
 Building a native image with the GraalVM Native Image plugin:
@@ -128,7 +129,7 @@ java.vm.name: Substrate VM
 java.vm.specification.version: 11
 java.vm.specification.name: Java Virtual Machine Specification
 java.vm.specification.vendor: Oracle Corporation
-java.vm.version: GraalVM 21.0.0.2 Java 11
+java.vm.version: GraalVM 21.1.0 Java 11
 ...
 ***** done *****
 ```
@@ -138,7 +139,7 @@ java.vm.version: GraalVM 21.0.0.2 Java 11
 Let's build a Dockerfile for building the native image file. Building Dockerfiles is complicated, and we will explore in 
 the Spring Native chapter of the workshop how to leverage Cloud Native Buildpacks for building lightweight Docker images:
 ```shell
-FROM ghcr.io/graalvm/graalvm-ce:java11-21.0.0 as builder
+FROM ghcr.io/graalvm/graalvm-ce:java11-21.1.0 as builder
 
 WORKDIR /app
 COPY . /app

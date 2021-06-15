@@ -21,7 +21,7 @@ all you have to do is update the `pom.xml` file:
             <plugin>
                 <groupId>org.graalvm.nativeimage</groupId>
                 <artifactId>native-image-maven-plugin</artifactId>
-                <version>21.0.0.2</version>
+                <version>21.1.0</version>
                 <configuration>
                     <mainClass>com.example.hello.SpringFunctionApplication</mainClass>
                     <buildArgs>-Dspring.native.remove-yaml-support=true

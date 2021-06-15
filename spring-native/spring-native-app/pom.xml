@@ -17,8 +17,11 @@
         <java.version>11</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
         <spring-native.version>0.10.0</spring-native.version>
+        <native-buildtools.version>0.9.0</native-buildtools.version>
+
         <jvm-image-type>jvm</jvm-image-type>
         <native-image-type>native</native-image-type>
+        <repackage.classifier/>
     </properties>
     <dependencies>
         <dependency>
@@ -50,6 +53,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <classifier>${repackage.classifier}</classifier>
                     <layers>
                         <enabled>true</enabled>
                     </layers>
@@ -87,6 +91,7 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
+                            <classifier>${repackage.classifier}</classifier>
                             <layers>
                                 <enabled>true</enabled>
                             </layers>
@@ -135,6 +140,7 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                         <configuration>
+                            <classifier>${repackage.classifier}</classifier>
                             <image>
                                 <builder>paketobuildpacks/builder:tiny</builder>
                                 <name>${project.artifactId}-${native-image-type}:${project.version}</name>
@@ -142,11 +148,8 @@
                                     <BP_BOOT_NATIVE_IMAGE>1</BP_BOOT_NATIVE_IMAGE>
                                     <BP_JVM_VERSION>11</BP_JVM_VERSION>
                                     <BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
-                                        -Dspring.spel.ignore=true
-                                        -Dspring.xml.ignore=true
-                                        -Dspring.native.remove-yaml-support=true
-                                        --enable-all-security-services
-                                        --no-fallback
+                                        <removeSpelSupport>true</removeSpelSupport>
+                                        <removeYamlSupport>true</removeYamlSupport>
                                     </BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>
                                 </env>
                             </image>
@@ -185,35 +188,39 @@
         <!-- this is the snippet that will invoke native-image during a regular maven build -->
         <profile>
             <id>native</id>
+            <properties>
+                <repackage.classifier>exec</repackage.classifier>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.graalvm.buildtools</groupId>
+                    <artifactId>junit-platform-native</artifactId>
+                    <version>${native-buildtools.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.graalvm.nativeimage</groupId>
-                        <artifactId>native-image-maven-plugin</artifactId>
-                        <version>21.1.0</version>
-                        <configuration>
-                            <mainClass>com.example.hello.SpringFunctionApplication</mainClass>
-                            <buildArgs>-Dspring.native.remove-yaml-support=true
-                                -Dspring.spel.ignore=true
-                                -Dspring.xml.ignore=true
-                            <!-- collect image dump files for the GraalVM dashboard -->
-                            <!--                                -H:DashboardDump=../image-dump/function-sample-dump-->
-                            <!--                                -H:+DashboardAll -->
-                            </buildArgs>
-                            <imageName>${project.artifactId}</imageName>
-                        </configuration>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                        <version>${native-buildtools.version}</version>
                         <executions>
                             <execution>
+                                <id>test-native</id>
+                                <phase>test</phase>
                                 <goals>
-                                    <goal>native-image</goal>
+                                    <goal>test</goal>
                                 </goals>
+                            </execution>
+                            <execution>
+                                <id>build-native</id>
                                 <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
@@ -277,7 +284,7 @@
             <dependency>
                 <groupId>org.springframework.experimental</groupId>
                 <artifactId>spring-native</artifactId>
-                <version>0.10.0</version>
+                <version>${spring-native.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>

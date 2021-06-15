@@ -68,7 +68,7 @@ Building an executable application with the GraalVM compiler leverages the follo
 ```shell 
 # switch to the GraalVM JDK for this build
 # ex, when using SDKman
-> sdk use java  21.0.0.2.r11-grl
+> sdk use java  21.1.0.r11-grl 
 
 # build and run code using
 > ./mvnw clean package -Pnative
