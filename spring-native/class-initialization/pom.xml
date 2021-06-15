@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-native.version>0.10.0</spring-native.version>
+		<native-buildtools.version>0.9.0</native-buildtools.version>
+		<repackage.classifier/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,12 +43,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<classifier>${repackage.classifier}</classifier>
 					<image>
 						<builder>paketobuildpacks/builder:tiny</builder>
 						<env>
 							<BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
-<!--							<BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>&#45;&#45;initialize-at-build-time=com.example.Second</BP_BOOT_NATIVE_IMAGE_BUILD_ARGUMENTS>-->
-							<!--							com.example.First,-->
 						</env>
 					</image>
 				</configuration>
