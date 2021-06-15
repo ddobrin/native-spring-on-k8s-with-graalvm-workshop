@@ -115,21 +115,26 @@ Building a native image with the GraalVM Native Image plugin:
 
 > ls -lart target
 ...
--rw-r--r--   1 dandobrin  staff     2819 26 Apr 15:17 hello-workshop-0.0.1-jar-with-dependencies.jar
--rwxr-xr-x   1 dandobrin  staff  8512484 26 Apr 15:17 com.example.helloworkshop
+-rw-r--r--   1 dandobrin  staff      2819 Jun 14 20:24 hello-workshop-0.0.1-jar-with-dependencies.jar
+-rwxr-xr-x   1 dandobrin  staff   8950252 Jun 14 20:25 helloworkshop
 ...
 
 # execute the native image, observe that it indicates the GraalVM as the JVM version
-> ./target/com.example.helloworkshop 
+> ./target/helloworkshop 
 ***** Hello, Workshop Participants! *****
 ...
+***** Java Vendor version *****
+java.vendor.url: https://www.graalvm.org/
+java.vendor: Oracle Corporation
+
 ***** Java VM version *****
 java.vm.vendor: Oracle Corporation
 java.vm.name: Substrate VM
 java.vm.specification.version: 11
 java.vm.specification.name: Java Virtual Machine Specification
 java.vm.specification.vendor: Oracle Corporation
-java.vm.version: GraalVM 21.1.0 Java 11
+java.vm.version: GraalVM 21.1.0 Java 11 CE
+
 ...
 ***** done *****
 ```

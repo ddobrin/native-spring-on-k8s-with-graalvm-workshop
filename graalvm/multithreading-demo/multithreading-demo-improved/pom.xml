@@ -37,7 +37,6 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -68,6 +67,18 @@
     <profiles>
         <profile>
             <id>native</id>
+            <properties>
+                <repackage.classifier>exec</repackage.classifier>
+                <native-buildtools.version>0.9.0</native-buildtools.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.graalvm.buildtools</groupId>
+                    <artifactId>junit-platform-native</artifactId>
+                    <version>${native-buildtools.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -93,15 +104,23 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.graalvm.nativeimage</groupId>
-                        <artifactId>native-image-maven-plugin</artifactId>
-                        <version>${graalvm.version}</version>
+                        <groupId>org.graalvm.buildtools</groupId>
+                        <artifactId>native-maven-plugin</artifactId>
+                        <version>${native-buildtools.version}</version>
                         <executions>
                             <execution>
+                                <id>test-native</id>
+                                <phase>test</phase>
                                 <goals>
-                                    <goal>native-image</goal>
+                                    <goal>test</goal>
                                 </goals>
+                            </execution>
+                            <execution>
+                                <id>build-native</id>
                                 <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
                             </execution>
                         </executions>
                         <configuration>
