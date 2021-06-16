@@ -64,6 +64,11 @@
 				<groupId>org.springframework.experimental</groupId>
 				<artifactId>spring-aot-maven-plugin</artifactId>
 				<version>${spring-native.version}</version>
+
+<!--				<configuration>-->
+<!--					<mode>native-agent</mode>-->
+<!--				</configuration>-->
+
 				<executions>
 					<execution>
 						<id>test-generate</id>
@@ -79,6 +84,13 @@
 					</execution>
 				</executions>
 			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-surefire-plugin</artifactId>-->
+<!--				<configuration>-->
+<!--					<argLine>-DspringAot=true -agentlib:native-image-agent=config-merge-dir=target/classes/META-INF/native-image</argLine>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 	<pluginRepositories>
