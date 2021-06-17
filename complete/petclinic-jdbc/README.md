@@ -52,7 +52,7 @@ Building an executable application with the GraalVM compiler leverages the follo
 > sdk use java 21.1.0.r11-grl 
 
 # build and run code using
-> ./mvnw clean package -Pnative
+> ./mvnw clean package -Pnative -DskipTests
 
 # observe what has been build
 > ls -lart target

@@ -14,8 +14,11 @@ services:
       - ./src/main/resources/db/mysql/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./src/main/resources/db/mysql/data.sql:/docker-entrypoint-initdb.d/2-data.sql
   petclinic-jdbc:
+    hostname: localhost
     image: petclinic-jdbc-jvm:0.0.1
     ports:
       - "8080:8080"
     depends_on:
       - mysql-server
+    environment:
+      - "SPRING_PROFILES_ACTIVE=deploy"
