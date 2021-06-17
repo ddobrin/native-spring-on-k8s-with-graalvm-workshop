@@ -5,6 +5,7 @@ target/
 !**/src/test/**/target/
 **/target/
 **/native
+**/test-results-native
 **/image-dump
 
 ### STS ###
