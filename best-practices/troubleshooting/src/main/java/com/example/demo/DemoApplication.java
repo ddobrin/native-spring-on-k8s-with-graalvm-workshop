@@ -19,23 +19,28 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.nio.charset.Charset;
 
 // Uncomment for fixing: Proxy hint
-//@JdkProxyHint(typeNames = {
-//		"com.example.demo.Bear",
-//		"org.springframework.aop.SpringProxy",
-//		"org.springframework.aop.framework.Advised",
-//		"org.springframework.core.DecoratingProxy"
-//})
+@JdkProxyHint(typeNames = {
+		"com.example.demo.Bear",
+		"org.springframework.aop.SpringProxy",
+		"org.springframework.aop.framework.Advised",
+		"org.springframework.core.DecoratingProxy"
+})
 
-// Uncomment for fixing Refelection hint
-//@TypeHint(typeNames = {"com.example.demo.UUID"})
+// Uncomment for fixing Reflection hint
+@TypeHint(typeNames = {"com.example.demo.UUID"})
+
+// You can declare this hint for non-standard CharSet
+// alternatively use the flag -AddAllCharsets
+//@TypeHint(typeNames = {"com.example.demo.MyCharSet32"})
 
 // Uncomment for fixing Serialization hint
-//@SerializationHint(
-//		types = {
-//				java.util.ArrayList.class
-//		})
+@SerializationHint(
+		types = {
+				java.util.ArrayList.class
+		})
 @Log4j2
 @SpringBootApplication
 public class DemoApplication {
@@ -71,6 +76,10 @@ class UUID {
 	String uid = java.util.UUID.randomUUID().toString();
 }
 
+class MyCharSet32 {
+	public static final Charset UTF_32_LE = Charset.forName("UTF-32LE");
+}
+
 @Log4j2
 @Component
 @RequiredArgsConstructor
@@ -88,7 +97,10 @@ class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 		UUID uuid = load("com.example.demo.UUID");
+
 		log.info("Assign unique ID to a Bear: " + uuid.uid);
+		log.info("Loaded Unicode 32 bit LE CharSet: " + MyCharSet32.UTF_32_LE);
+
 		log.info("Invoke talk(). Proxied message: " + bear.talk());
 		log.info("Invoke eat(). Proxied message: " + bear.eat());
 

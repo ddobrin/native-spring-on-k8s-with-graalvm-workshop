@@ -10,14 +10,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
-import org.springframework.nativex.hint.JdkProxyHint;
-import org.springframework.nativex.hint.SerializationHint;
-import org.springframework.nativex.hint.TypeHint;
 import org.springframework.stereotype.Component;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 @Log4j2
@@ -55,6 +53,10 @@ class UUID {
 	String uid = java.util.UUID.randomUUID().toString();
 }
 
+class MyCharSet32 {
+	public static final Charset UTF_32_LE = Charset.forName("UTF-32LE");
+}
+
 @Log4j2
 @Component
 @RequiredArgsConstructor
@@ -72,7 +74,10 @@ class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
 		UUID uuid = load("com.example.demo.UUID");
+
 		log.info("Assign unique ID to a Bear: " + uuid.uid);
+		log.info("Loaded Unicode 32 bit LE CharSet: " + MyCharSet32.UTF_32_LE);
+
 		log.info("Invoke talk(). Proxied message: " + bear.talk());
 		log.info("Invoke eat(). Proxied message: " + bear.eat());
 
@@ -86,5 +91,3 @@ class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 		}
 	}
 }
-
-

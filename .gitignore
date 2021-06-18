@@ -44,7 +44,12 @@ build/
 # clean up later
 graalvm/assisted-configuration/META-INF/
 graalvm/assisted-configuration/reflection
+reflection.build_artifacts.txt
 graalvm/serialization/serialization
 graalvm/serialization/serialized_objects_in_stream
 spring-native/serialization-agent/serialized_objects_in_stream
 spring-native/serialization/serialized_objects_in_stream
+classinit*
+report*
+setup/helloworkshop
+setup/helloworkshop.build_artifacts.txt

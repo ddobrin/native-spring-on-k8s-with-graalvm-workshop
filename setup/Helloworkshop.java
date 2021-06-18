@@ -6,6 +6,8 @@ import java.util.Properties;
 import java.util.UUID;
 
 public class Helloworkshop {
+    private static final String USER_HOME = System.getProperty("user.home");
+
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, ClassNotFoundException {
         System.out.println("\n***** Hello, Workshop Participants! *****");
 
@@ -35,5 +37,7 @@ public class Helloworkshop {
         System.out.println("Java Update Element Version = "+version.update());
         System.out.println("Java Version Build = "+version.build().get());
         System.out.println("Java Pre-Release Info = "+version.pre().orElse("NA"));
+
+        System.out.println("USER_HOME = " + USER_HOME);
     }
 }
