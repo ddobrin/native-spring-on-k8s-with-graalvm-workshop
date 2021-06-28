@@ -5,7 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.nativex.hint.AotProxyHint;
 import org.springframework.nativex.hint.ProxyBits;
 
-@AotProxyHint(targetClass=com.example.graalvmdemo.rest.PersonController.class,proxyFeatures = ProxyBits.IS_STATIC)
+@AotProxyHint(
+		targetClass=com.example.graalvmdemo.rest.PersonController.class,
+		proxyFeatures = ProxyBits.IS_STATIC)
 @SpringBootApplication
 public class GraalvmDemoApplication {
 

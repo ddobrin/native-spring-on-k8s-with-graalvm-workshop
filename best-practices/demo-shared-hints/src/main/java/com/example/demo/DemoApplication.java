@@ -10,13 +10,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
+import org.springframework.nativex.hint.*;
 import org.springframework.stereotype.Component;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.nio.charset.Charset;
 
 @Log4j2
 @SpringBootApplication
@@ -35,10 +36,10 @@ public class DemoApplication {
 
 			// intercepts the talk() method
 			if (method.getMethod().getName().equals("talk"))
-				return "Proxied method: Bear talks() ... After interception...";
+				return "Proxied method: Bear talk()s ... Finished interception...";
 
 			// proceeds to the eat() method - for this sample
-			return "No method intercepted. Bear must be eat()ing ... After interception...";
+			return "No method intercepted. Bear must be eat()ing ... Finished interception...";
 		});
 		return (Bear) pfb.getObject();
 	}
@@ -91,3 +92,5 @@ class Initializer implements ApplicationListener<ApplicationReadyEvent> {
 		}
 	}
 }
+
+

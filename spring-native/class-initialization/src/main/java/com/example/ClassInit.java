@@ -17,19 +17,18 @@ class First {
     public static Second second = new Second();
 
     //Uncomment this section for part 2 of the exercise
-    public static Thread t;
-
-    // Uncomment for Part 2
-//    static {
-//        t = new Thread(()-> {
-//            try {
-//                System.out.println("Sleep for 10s...");
-//                Thread.sleep(10_000);
-//                System.out.println("Done...");
-//            } catch (Exception e){}
-//        });
-//        t.start();
-//    }
+//        public static Thread t;
+//
+//        static {
+//            t = new Thread(()-> {
+//                try {
+//                    System.out.println("Sleep for 10s...");
+//                    Thread.sleep(10_000);
+//                    System.out.println("Done...");
+//                } catch (Exception e){}
+//            });
+//            t.start();
+//        }
 }
 
 class Second {

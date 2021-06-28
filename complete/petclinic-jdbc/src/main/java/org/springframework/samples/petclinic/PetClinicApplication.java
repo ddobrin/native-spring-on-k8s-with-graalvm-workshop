@@ -27,6 +27,15 @@ import org.springframework.nativex.hint.TypeHint;
  *
  * @author Dave Syer
  *
+ * Native Notes:
+ * 1. By default, the native image builder will not integrate any of the resources which are on the
+ * classpath during the generation into the final image.
+ *
+ * 2. Java localization support (java.util.ResourceBundle) enables Java code to load L10N resources and
+ * show the right user messages suitable for actual runtime settings like time locale and format, etc.
+ *
+ * Native Image needs ahead-of-time knowledge of the resource bundles your application needs so that it can
+ * load and store the appropriate bundles for usage in the generated binary
  */
 @SpringBootApplication
 @SerializationHint(types = {

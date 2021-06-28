@@ -7,6 +7,7 @@ target/
 **/native
 **/test-results-native
 **/image-dump
+**/native-tests*
 
 ### STS ###
 .apt_generated

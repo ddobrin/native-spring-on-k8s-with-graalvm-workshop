@@ -70,9 +70,59 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+					<buildArgs>-H:+PrintClassInitialization</buildArgs>
+				</configuration>
+
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<!-- this is the snippet that will invoke native-image during a regular maven build -->
+		<profile>
+			<id>native</id>
+			<properties>
+				<repackage.classifier>exec</repackage.classifier>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.graalvm.buildtools</groupId>
+					<artifactId>junit-platform-native</artifactId>
+					<version>${native-buildtools.version}</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.graalvm.buildtools</groupId>
+						<artifactId>native-maven-plugin</artifactId>
+						<version>${native-buildtools.version}</version>
+						<executions>
+							<execution>
+								<id>test-native</id>
+								<phase>test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>build-native</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>spring-release</id>
