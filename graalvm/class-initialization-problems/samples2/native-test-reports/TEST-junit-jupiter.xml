@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JUnit Jupiter" tests="0" skipped="0" failures="0" errors="0" time="0" hostname="ddobrin-a01.vmware.com" timestamp="2021-06-22T11:19:38">
+<properties>
+<property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+<property name="file.encoding" value="UTF-8"/>
+<property name="file.separator" value="/"/>
+<property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+<property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+<property name="java.class.path" value=""/>
+<property name="java.class.version" value="55.0"/>
+<property name="java.endorsed.dirs" value=""/>
+<property name="java.ext.dirs" value=""/>
+<property name="java.io.tmpdir" value="/var/folders/lw/h19lpyd15j387yb_2j677vv00000gn/T/"/>
+<property name="java.library.path" value="."/>
+<property name="java.specification.name" value="Java Platform API Specification"/>
+<property name="java.specification.vendor" value="Oracle Corporation"/>
+<property name="java.specification.version" value="11"/>
+<property name="java.vendor" value="Oracle Corporation"/>
+<property name="java.vendor.url" value="https://www.graalvm.org/"/>
+<property name="java.version" value="11.0.11"/>
+<property name="java.vm.name" value="Substrate VM"/>
+<property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+<property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+<property name="java.vm.specification.version" value="11"/>
+<property name="java.vm.vendor" value="Oracle Corporation"/>
+<property name="java.vm.version" value="GraalVM 21.1.0 Java 11 CE"/>
+<property name="jdk.lang.Process.launchMechanism" value="FORK"/>
+<property name="line.separator" value="
+"/>
+<property name="org.graalvm.nativeimage.imagecode" value="runtime"/>
+<property name="org.graalvm.nativeimage.kind" value="executable"/>
+<property name="os.arch" value="amd64"/>
+<property name="os.name" value="Mac OS X"/>
+<property name="os.version" value="10.15.7"/>
+<property name="path.separator" value=":"/>
+<property name="sun.arch.data.model" value="64"/>
+<property name="sun.jnu.encoding" value="UTF-8"/>
+<property name="user.dir" value="/Users/dandobrin/work/native/native-spring-on-k8s-with-graalvm-workshop/graalvm/class-initialization-problems"/>
+<property name="user.home" value="/Users/dandobrin"/>
+<property name="user.name" value="dandobrin"/>
+<property name="user.timezone" value="America/Toronto"/>
+</properties>
+<system-out><![CDATA[
+unique-id: [engine:junit-jupiter]
+display-name: JUnit Jupiter
+]]></system-out>
+</testsuite>

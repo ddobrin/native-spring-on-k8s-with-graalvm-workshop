@@ -1,0 +1,3 @@
+[EXECUTABLE]
+class-init-problems
+

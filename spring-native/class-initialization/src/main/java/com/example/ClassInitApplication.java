@@ -7,11 +7,11 @@ import org.springframework.nativex.hint.InitializationTime;
 import org.springframework.nativex.hint.NativeHint;
 
 //Part 1
-//@NativeHint(
-//		initialization = @InitializationHint(types = {
-//				com.example.First.class,
-//				com.example.Second.class
-//		}, initTime = InitializationTime.BUILD))
+@NativeHint(
+		initialization = @InitializationHint(types = {
+				com.example.First.class,
+				com.example.Second.class
+		}, initTime = InitializationTime.BUILD))
 
 //Part 2
 //@NativeHint(

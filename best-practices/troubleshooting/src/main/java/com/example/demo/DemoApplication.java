@@ -10,9 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
-import org.springframework.nativex.hint.JdkProxyHint;
-import org.springframework.nativex.hint.SerializationHint;
-import org.springframework.nativex.hint.TypeHint;
+import org.springframework.nativex.hint.*;
 import org.springframework.stereotype.Component;
 
 import java.io.FileOutputStream;
@@ -34,7 +32,10 @@ import java.nio.charset.Charset;
 
 // You can declare this hint for non-standard CharSet
 // alternatively use the flag -AddAllCharsets
-//@TypeHint(typeNames = {"com.example.demo.MyCharSet32"})
+@NativeHint(
+		initialization = @InitializationHint(types = {
+				com.example.demo.MyCharSet32.class
+		}, initTime = InitializationTime.BUILD))
 
 // Uncomment for fixing Serialization hint
 @SerializationHint(
@@ -58,10 +59,10 @@ public class DemoApplication {
 
 			// intercepts the talk() method
 			if (method.getMethod().getName().equals("talk"))
-				return "Proxied method: Bear talks() ... After interception...";
+				return "Proxied method: Bear talk()s ... Finished interception...";
 
 			// proceeds to the eat() method - for this sample
-			return "No method intercepted. Bear must be eat()ing ... After interception...";
+			return "No method intercepted. Bear must be eat()ing ... Finished interception...";
 		});
 		return (Bear) pfb.getObject();
 	}

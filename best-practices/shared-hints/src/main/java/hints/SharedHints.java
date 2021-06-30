@@ -1,8 +1,6 @@
 package hints;
 
-import org.springframework.nativex.hint.JdkProxyHint;
-import org.springframework.nativex.hint.SerializationHint;
-import org.springframework.nativex.hint.TypeHint;
+import org.springframework.nativex.hint.*;
 import org.springframework.nativex.type.HintDeclaration;
 import org.springframework.nativex.type.NativeConfiguration;
 import org.springframework.nativex.type.TypeSystem;
@@ -20,6 +18,12 @@ import java.util.stream.Stream;
 		"org.springframework.core.DecoratingProxy"
 })
 @TypeHint(typeNames = {"com.example.demo.UUID"})
+// You can declare this hint for non-standard CharSet
+// alternatively use the flag -AddAllCharsets
+//@NativeHint(
+//		initialization = @InitializationHint(types = {
+//				com.example.demo.MyCharSet32.class
+//		}, initTime = InitializationTime.BUILD))
 @SerializationHint(
 		types = {
 				java.util.ArrayList.class
