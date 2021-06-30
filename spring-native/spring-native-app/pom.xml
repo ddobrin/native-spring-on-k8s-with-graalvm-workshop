@@ -17,7 +17,7 @@
         <java.version>11</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
         <spring-native.version>0.10.1</spring-native.version>
-        <native-buildtools.version>0.9.0</native-buildtools.version>
+        <native-buildtools.version>0.9.1</native-buildtools.version>
 
         <jvm-image-type>jvm</jvm-image-type>
         <native-image-type>native</native-image-type>
