@@ -23,7 +23,7 @@ native applications using _**Spring Native**_ and build on concepts shown in the
 * Visualizing arbitrary aspects of dynamic and static compilations in Native Image -- **[Demo/Homework](dashboard/README.md)**
 
 ## Currently Tracked Versions:
-* Spring Boot 2.5.1 - May 2021
-* Spring Native 0.10.0 (Spring Native Beta) - June 2021
+* Spring Boot 2.5.3 - July 2021
+* Spring Native 0.10.2 (Spring Native Beta) - July 2021
 * OpenJDK version "11.0.10"
 * OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)

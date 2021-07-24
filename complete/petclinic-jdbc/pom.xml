@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.2</version>
+		<version>2.5.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.springframework.samples</groupId>
@@ -27,9 +27,9 @@
 
 		<main.class>org.springframework.samples.petclinic.PetClinicApplication</main.class>
 
-		<spring-native.version>0.10.1</spring-native.version>
+		<spring-native.version>0.10.2-SNAPSHOT</spring-native.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
-		<spring-native.version>0.10.1</spring-native.version>
+		<spring-native.version>0.10.2-SNAPSHOT</spring-native.version>
 		<native-buildtools.version>0.9.1</native-buildtools.version>
 		<repackage.classifier/>
 
