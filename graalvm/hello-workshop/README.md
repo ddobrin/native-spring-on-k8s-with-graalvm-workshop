@@ -26,7 +26,7 @@ This example sample is relative to the repository root:
 
 > ls -lart target
 ...
--rw-r--r--  1 dandobrin  staff  2819 26 Apr 15:08 hello-workshop-0.0.1-jar-with-dependencies.jar
+-rw-r--r--   1 dandobrin  staff  2820 Aug  3 15:38 hello-workshop-0.0.1-jar-with-dependencies.jar
 ...
 
 > java -jar target/hello-workshop-0.0.1-jar-with-dependencies.jar 
@@ -39,41 +39,61 @@ This example sample is relative to the repository root:
 The GraalVM Maven plugin:
 ```xml
    <profiles>
-        <profile>
-            <id>native</id>
-            <build>
-                <plugins>
-                  <plugin>
-                    <groupId>org.graalvm.nativeimage</groupId>
-                    <artifactId>native-image-maven-plugin</artifactId>
-                    <version>${graalvm.version}</version>
+    <profile>
+        <id>native</id>
+        <properties>
+            <repackage.classifier>exec</repackage.classifier>
+            <native-buildtools.version>0.9.1</native-buildtools.version>
+        </properties>
+        <dependencies>
+            <dependency>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>junit-platform-native</artifactId>
+                <version>${native-buildtools.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.graalvm.buildtools</groupId>
+                    <artifactId>native-maven-plugin</artifactId>
+                    <version>${native-buildtools.version}</version>
                     <executions>
-                      <execution>
-                        <goals>
-                          <goal>native-image</goal>
-                        </goals>
-                        <phase>package</phase>
-                      </execution>
+                        <execution>
+                            <id>test-native</id>
+                            <phase>test</phase>
+                            <goals>
+                                <goal>test</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>build-native</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
                     </executions>
                     <configuration>
-                      <buildArgs>
-                        <buildArg>--no-fallback</buildArg>
-                      </buildArgs>
-                      <mainClass>com.example.Helloworkshop</mainClass>
+                        <skip>false</skip>
+                        <imageName>helloworkshop</imageName>
+                        <buildArgs>--no-fallback</buildArgs>
+                        <mainClass>com.example.Helloworkshop</mainClass>
                     </configuration>
-                  </plugin>
-                </plugins>
-            </build>
-        </profile>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
   </profiles>
 ```
 
 To check whether the native toolchain is accessible, then show native toolchain information and image’s build settings:
 ```shell
 > native-image --native-image-info -jar target/hello-workshop-0.0.1-jar-with-dependencies.jar 
-[hello-workshop-0.0.1-jar-with-dependencies:68614]    classlist:     741.15 ms,  0.96 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]        (cap):   1,807.69 ms,  0.96 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]        setup:   2,948.80 ms,  0.96 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]    classlist:     879.57 ms,  0.96 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]        (cap):   1,883.99 ms,  0.96 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]        setup:   3,003.31 ms,  0.96 GB
 # Building image for target platform: org.graalvm.nativeimage.Platform$DARWIN_AMD64
 # Using native toolchain:
 #   Name: LLVM (clang)
@@ -82,30 +102,29 @@ To check whether the native toolchain is accessible, then show native toolchain 
 #   Target architecture: x86_64
 #   Path: /usr/bin/cc
 # Using CLibrary: com.oracle.svm.core.c.libc.NoLibC
-[hello-workshop-0.0.1-jar-with-dependencies:68614]     (clinit):     118.79 ms,  1.22 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]     (clinit):     142.86 ms,  1.74 GB
 # Static libraries:
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/svm/clibraries/darwin-amd64/liblibchelper.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libnet.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/svm/clibraries/darwin-amd64/libdarwin.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libnio.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libjava.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libfdlibm.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/static/darwin-amd64/libzip.a
-#   ../../../../../.sdkman/candidates/java/21.1.0.r11-grl/lib/svm/clibraries/darwin-amd64/libjvm.a
-# Other libraries: pthread,-framework Foundation,dl,z
-[hello-workshop-0.0.1-jar-with-dependencies:68614]   (typeflow):   3,228.26 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]    (objects):   3,087.61 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]   (features):     255.54 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]     analysis:   6,856.35 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]     universe:     315.42 ms,  1.22 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]      (parse):     676.01 ms,  1.68 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]     (inline):     757.57 ms,  1.68 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]    (compile):   3,510.89 ms,  2.31 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]      compile:   5,369.62 ms,  2.31 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]        image:   1,021.00 ms,  2.31 GB
-[hello-workshop-0.0.1-jar-with-dependencies:68614]        write:     299.27 ms,  2.31 GB
-# Printing build artifacts to: hello-workshop-0.0.1-jar-with-dependencies.build_artifacts.txt
-[hello-workshop-0.0.1-jar-with-dependencies:68614]      [total]:  17,688.32 ms,  2.31 GB
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/svm/clibraries/darwin-amd64/liblibchelper.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/static/darwin-amd64/libnet.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/svm/clibraries/darwin-amd64/libdarwin.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/static/darwin-amd64/libnio.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/static/darwin-amd64/libjava.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/static/darwin-amd64/libfdlibm.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/static/darwin-amd64/libzip.a
+#   ../../../../../.sdkman/candidates/java/21.2.0.r11-grl/lib/svm/clibraries/darwin-amd64/libjvm.a
+# Other libraries: z,-framework Foundation,pthread,dl
+[hello-workshop-0.0.1-jar-with-dependencies:60432]   (typeflow):   2,221.91 ms,  1.74 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]    (objects):   1,970.68 ms,  1.74 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]   (features):     287.78 ms,  1.74 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]     analysis:   4,822.90 ms,  1.74 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]     universe:     586.89 ms,  1.74 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]      (parse):     531.13 ms,  1.76 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]     (inline):     714.53 ms,  2.33 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]    (compile):   5,101.78 ms,  2.40 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]      compile:   6,859.52 ms,  2.40 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]        image:   1,321.93 ms,  2.40 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]        write:     320.48 ms,  2.40 GB
+[hello-workshop-0.0.1-jar-with-dependencies:60432]      [total]:  17,978.14 ms,  2.40 GB
 ```
 
 Building a native image with the GraalVM Native Image plugin:
@@ -115,14 +134,15 @@ Building a native image with the GraalVM Native Image plugin:
 
 > ls -lart target
 ...
--rw-r--r--   1 dandobrin  staff      2819 Jun 14 20:24 hello-workshop-0.0.1-jar-with-dependencies.jar
--rwxr-xr-x   1 dandobrin  staff   8950252 Jun 14 20:25 helloworkshop
+-rw-r--r--   1 dandobrin  staff      2820 Aug  3 15:51 hello-workshop-0.0.1-jar-with-dependencies.jar
+-rwxr-xr-x   1 dandobrin  staff  11424108 Aug  3 15:51 helloworkshop
 ...
 
 # execute the native image, observe that it indicates the GraalVM as the JVM version
 > ./target/helloworkshop 
 ***** Hello, Workshop Participants! *****
-...
+Today's date: 2021/08/03 15:55:39
+
 ***** Java Vendor version *****
 java.vendor.url: https://www.graalvm.org/
 java.vendor: Oracle Corporation
@@ -133,9 +153,17 @@ java.vm.name: Substrate VM
 java.vm.specification.version: 11
 java.vm.specification.name: Java Virtual Machine Specification
 java.vm.specification.vendor: Oracle Corporation
-java.vm.version: GraalVM 21.1.0 Java 11 CE
+java.vm.version: GraalVM 21.2.0 Java 11 CE
 
-...
+***** Java Runtime Version *****
+Java Version = 11.0.12+6-jvmci-21.2-b08
+Java Version Feature Element = 11
+Java Version Interim Element = 0
+Java Patch Element Version = 0
+Java Update Element Version = 12
+Java Version Build = 6
+Java Pre-Release Info = NA
+
 ***** done *****
 ```
 
@@ -144,7 +172,7 @@ java.vm.version: GraalVM 21.1.0 Java 11 CE
 Let's build a Dockerfile for building the native image file. Building Dockerfiles is complicated, and we will explore in 
 the Spring Native chapter of the workshop how to leverage Cloud Native Buildpacks for building lightweight Docker images:
 ```shell
-FROM ghcr.io/graalvm/graalvm-ce:java11-21.1.0 as builder
+FROM ghcr.io/graalvm/graalvm-ce:java11-21.2.0 as builder
 
 WORKDIR /app
 COPY . /app

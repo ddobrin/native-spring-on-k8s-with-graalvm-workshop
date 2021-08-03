@@ -22,7 +22,7 @@ If you prefer to set up the path to the executable yourself in the IDE or Termin
     * jEnv - Java SDK Manager [[Install]](https://www.jenv.be/)
 * Java and Maven
     * Java 11 OpenJDK - install with [AdoptOpenJDK downloads](https://adoptopenjdk.net/installation.html) or [SDK Manager - recommended](https://sdkman.io/jdks#AdoptOpenJDK)
-    * GraalVM 21.1.0.r11-grl - install with [GraalVM download](https://www.graalvm.org/) or [SDK Manager - recommended](https://sdkman.io/jdks#Oracle)
+    * GraalVM 21.2.0.r11-grl - install with [GraalVM download](https://www.graalvm.org/) or [SDK Manager - recommended](https://sdkman.io/jdks#Oracle)
 * Maven 
     * [Install](https://maven.apache.org/install.html)
 * Docker Utilities
@@ -38,7 +38,7 @@ If you prefer to set up the path to the executable yourself in the IDE or Termin
 * Spring Boot 2.5.3 - July 2021
 * Spring Native 0.10.2 (Spring Native Beta) - July 2021
 * OpenJDK version "11.0.10"
-* OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing
+* OpenJDK 64-Bit Server VM GraalVM CE 21.2.0 (build 11.0.12+6-jvmci-21.2-b08, mixed mode, sharing)
 
 ## Environment Validation
 
@@ -69,7 +69,7 @@ Let's validate that the SDK Manager is properly installed. This README provides 
 
 # Install GraalVM
 # ----------------------------
-> sdk install java  21.1.0.r11-grl 
+> sdk install java  21.2.0.r11-grl 
 
 # Install the native-image executable
 # ----------------------------
@@ -80,8 +80,8 @@ Let's validate that the SDK Manager is properly installed. This README provides 
 > sdk list java | grep 11.0.10.hs-adp
 Ex.: | >>> | 11.0.10.hs   | adpt    | installed  | 11.0.10.hs-adpt     
 
-> sdk list java | grep  21.1.0.r11-grl 
-Ex.:  |     | 21.1.0.r11-grl | grl     | installed  | 21.1.0.r11-grl    
+> sdk list java | grep  21.2.0.r11-grl 
+Ex.:  |     | 21.2.0.r11-grl | grl     | installed  | 21.2.0.r11-grl    
 
 # Switch between Java versions
 # -----------------------------
@@ -89,7 +89,7 @@ Ex.:  |     | 21.1.0.r11-grl | grl     | installed  | 21.1.0.r11-grl
 > sdk use java 11.0.10.hs-adpt
 
 # Use GraalVM
-> sdk use java  21.1.0.r11-grl 
+> sdk use java  21.2.0.r11-grl 
 
 # please validate that you have installed the `native-image` executable
 > gu install native-image
@@ -195,7 +195,7 @@ Clone the repo and navigate to the setup folder, if you have not done it before:
 
 ```shell
 # set AdoptOpenJDK
-> sdk use java 21.1.0.r11-grl 
+> sdk use java 21.2.0.r11-grl 
 
 # compile and run the app
 > javac Helloworkshop.java
@@ -210,7 +210,7 @@ java.vm.version: 11.0.10+9
 
 ```shell
 # Use GraalVM
-> sdk use java  21.1.0.r11-grl 
+> sdk use java  21.2.0.r11-grl 
 
 # compile and run the app
 > javac Helloworkshop.java
@@ -218,12 +218,13 @@ java.vm.version: 11.0.10+9
 > ./helloworkshop
 
 Observe the Java version and vendor information:
+***** Java VM version *****
 java.vm.vendor: Oracle Corporation
 java.vm.name: Substrate VM
 java.vm.specification.version: 11
 java.vm.specification.name: Java Virtual Machine Specification
 java.vm.specification.vendor: Oracle Corporation
-java.vm.version: GraalVM 21.1.0 Java 11 CE
+java.vm.version: GraalVM 21.2.0 Java 11 CE
 ```
 
 # You are now ready to go !

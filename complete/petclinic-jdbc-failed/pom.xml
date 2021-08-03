@@ -27,9 +27,9 @@
 
 		<main.class>org.springframework.samples.petclinic.PetClinicApplication</main.class>
 
-		<spring-native.version>0.10.2-SNAPSHOT</spring-native.version>
+		<spring-native.version>0.10.2</spring-native.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
-		<spring-native.version>0.10.2-SNAPSHOT</spring-native.version>
+		<spring-native.version>0.10.2</spring-native.version>
 		<native-buildtools.version>0.9.1</native-buildtools.version>
 		<repackage.classifier/>
 

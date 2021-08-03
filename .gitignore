@@ -50,6 +50,8 @@ graalvm/serialization/serialization
 graalvm/serialization/serialized_objects_in_stream
 spring-native/serialization-agent/serialized_objects_in_stream
 spring-native/serialization/serialized_objects_in_stream
+graalvm/hello-workshop/hello-workshop-0.0.1-jar-with-dependencies
+graalvm/hello-workshop/hello-workshop-0.0.1-jar-with-dependencies.build_artifacts.txt
 classinit*
 report*
 setup/helloworkshop
