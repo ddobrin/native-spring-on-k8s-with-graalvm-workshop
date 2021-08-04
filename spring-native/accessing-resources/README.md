@@ -53,7 +53,7 @@ import org.springframework.nativex.hint.ResourceHint;
                 "src/data/app-resources.*"
         }
 )
-@Profile("!test")
+//@Profile("!test")
 @SpringBootApplication
 public class ResourceAccess {
     public static void main(String[] args) {

@@ -37,19 +37,14 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-indexer</artifactId>
+            <groupId>org.springframework.experimental</groupId>
+            <artifactId>spring-aot</artifactId>
+            <version>${spring-native.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
@@ -212,10 +207,10 @@
                         <groupId>org.graalvm.buildtools</groupId>
                         <artifactId>native-maven-plugin</artifactId>
                         <version>${native-buildtools.version}</version>
-                        <configuration>
-                            <mainClass>com.example.commandlinerunner.CommandlinerunnerApplication</mainClass>
-                            <imageName>${project.artifactId}</imageName>
-                        </configuration>
+<!--                        <configuration>-->
+<!--                            <mainClass>com.example.commandlinerunner.CommandlinerunnerApplication</mainClass>-->
+<!--                            <imageName>${project.artifactId}</imageName>-->
+<!--                        </configuration>-->
                         <executions>
                             <execution>
                                 <id>test-native</id>

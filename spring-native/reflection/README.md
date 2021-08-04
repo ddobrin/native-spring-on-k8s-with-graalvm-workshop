@@ -47,7 +47,7 @@ class StringCapitalizer {
     }
 }
 
-@Profile("!test")
+//@Profile("!test")
 @Component
 public class Reflection implements CommandLineRunner {
 

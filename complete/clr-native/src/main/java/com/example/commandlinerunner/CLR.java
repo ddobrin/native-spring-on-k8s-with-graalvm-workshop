@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Profile("!test")
+//@Profile("!test")
 @Component
 public class CLR implements CommandLineRunner {
 
