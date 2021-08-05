@@ -1,0 +1,19 @@
+# Class exercises - configuration for single class
+---
+classes:
+  - exercises:
+      # `file` is relative to .strigo directory
+      - file: "../README.md"
+        title: "Introduction"
+      - file: "../setup/README.md"
+        title: "Software Prerequisites Setup and Environment Validation"
+      - file: "../complete/petclinic-jdbc/README.md"
+        title: "Spring Boot famous PetClinic sample with JDBC persistence"
+      - file: "../graalvm/README.md"
+        title: "Understanding GraalVM"
+      - file: "../spring-native/README.md"
+        title: "Building Spring Native Applications"
+      - file: "../best-practices/README.md"
+        title: "Best practices for Troubleshooting and Designing Native-friendly Spring apps / libraries"
+      - file: "../complete/README.md"
+        title: "Complete Spring Native examples"
