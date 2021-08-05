@@ -82,6 +82,7 @@ import org.springframework.nativex.hint.AccessBits;
 /* You can specify a TypeHint directly
 @TypeHint(typeNames = {"com.example.StringReverser"})
 @TypeHint(typeNames = {"com.example.StringCapitalizer"})
+@TypeHint(typeNames = {"org.springframework.context.annotation.ProfileCondition"})
 */
 
 /* ... or more specific to the type and down to the method you need to leverage hints for */
@@ -89,7 +90,8 @@ import org.springframework.nativex.hint.AccessBits;
         types = {
                 @TypeHint(types = {
                         com.example.StringReverser.class,
-                        com.example.StringCapitalizer.class
+                        com.example.StringCapitalizer.class,
+                        org.springframework.context.annotation.ProfileCondition
                 }, access = AccessBits.DECLARED_METHODS)
         }
 )

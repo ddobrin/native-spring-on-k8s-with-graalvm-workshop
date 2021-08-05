@@ -2,7 +2,7 @@
 
 This repo contains all the materials required for the `Native Spring on K8s with GraalVM` workshop.
 
-The workshop is designed to help Spring Boot developers build new / modernize existing applications using Spring Native and deploy them in Kubernetes. 
+The workshop is designed to help Spring Boot developers build new/modernize existing applications using Spring Native and deploy them to Kubernetes. 
 Basic knowledge of Spring Boot and Kubernetes is assumed for successful completion.
 
 ---
@@ -14,7 +14,7 @@ This content contains sample code supporting the workshop agenda, with a focus o
 The content is organized around a number of independent sections, each with a `README.md` file explaining how to build and run the samples, 
 or pointing out areas of interest, for further exploration. 
 
-The content focuses on the following main areas:
+The content is geared around the following main areas:
 * [Prerequisite Software Setup and Validation](setup/README.md) 
 * Understanding [GraalVM](graalvm/README.md)
 * Building [Spring Native](spring-native/README.md) Applications with GraalVM

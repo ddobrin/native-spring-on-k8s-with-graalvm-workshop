@@ -9,7 +9,8 @@ import org.springframework.nativex.hint.TypeHint;
 		"java.util.Map"
 })
 @TypeHint(typeNames = {
-		"java.util.Map"
+		"java.util.Map",
+		"org.springframework.context.annotation.ProfileCondition"
 })
 @SpringBootApplication
 public class DynamicProxyApplication {

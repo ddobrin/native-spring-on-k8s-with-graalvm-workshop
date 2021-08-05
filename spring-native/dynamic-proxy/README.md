@@ -35,7 +35,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 
-//@Profile("!test")
+@Profile("!test")
 @Component
 public class DynamicProxy implements CommandLineRunner {
     @Override
@@ -94,7 +94,8 @@ Let's add the @JdkProxyHint, to address the Proxy creation in `Map proxyInstance
 Let's also add the @TypeHint, to address the creation of the java.util.Map Class instance in a @TypeHint in ` Class.forName(className)`
 ```java
 @TypeHint(typeNames = {
-		"java.util.Map"
+        "java.util.Map",
+        "org.springframework.context.annotation.ProfileCondition"
 })
 ```
 

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 
-//@Profile("!test")
+@Profile("!test")
 @Component
 public class DynamicProxy implements CommandLineRunner {
     @Override
