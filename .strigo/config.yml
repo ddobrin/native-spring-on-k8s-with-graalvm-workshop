@@ -1,0 +1,11 @@
+# Class exercises - configuration for single class
+---
+classes:
+  - exercises:
+      # `file` is relative to .strigo directory
+      - file: "../setup/README.md"
+        title: "Workshop Environment Validation"
+      - file: "../spring-native/spring-native-app/README.md"
+        title: "Building and running a JVM and Native image for a Spring app"
+      - file: "../complete/clr-native/README.md"
+        title: "Building and containerizing a Spring app in a lightweight container"
